@@ -185,6 +185,11 @@ import { url } from '../utils/url';
               </button>
             </form>
 
+            <!-- Error message (hidden by default) -->
+            <div id="error-msg" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 text-center">
+              전송 중 오류가 발생했습니다. 잠시 후 다시 시도하거나 <a href="tel:01023151579" class="font-semibold underline">전화</a>로 문의해 주세요.
+            </div>
+
             <!-- Success message (hidden by default) -->
             <div id="success-msg" class="hidden text-center py-12">
               <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -193,7 +198,7 @@ import { url } from '../utils/url';
                 </svg>
               </div>
               <h3 class="text-xl font-black text-navy-900 mb-2">상담 신청이 완료되었습니다!</h3>
-              <p class="text-gray-500 text-sm">영업일 기준 24시간 이내에 연락드리겠습니다.<br />급하신 경우 <a href="tel:0212345678" class="text-blue-600 font-semibold hover:underline">02-1234-5678</a>로 바로 전화해 주세요.</p>
+              <p class="text-gray-500 text-sm">영업일 기준 24시간 이내에 연락드리겠습니다.<br />급하신 경우 <a href="tel:01023151579" class="text-blue-600 font-semibold hover:underline">010-2315-1579</a>로 바로 전화해 주세요.</p>
             </div>
           </div>
         </div>
@@ -204,7 +209,7 @@ import { url } from '../utils/url';
           <div class="bg-navy-900 text-white rounded-2xl p-6">
             <h3 class="font-bold text-lg mb-4">바로 연락하기</h3>
             <div class="space-y-4">
-              <a href="tel:0212345678" class="flex items-center gap-3 p-3.5 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
+              <a href="tel:01023151579" class="flex items-center gap-3 p-3.5 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
                 <div class="w-10 h-10 bg-gold-500 rounded-lg flex items-center justify-center">
                   <svg class="w-5 h-5 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -212,10 +217,10 @@ import { url } from '../utils/url';
                 </div>
                 <div>
                   <p class="text-xs text-gray-400">전화 상담</p>
-                  <p class="font-bold">02-1234-5678</p>
+                  <p class="font-bold">010-2315-1579</p>
                 </div>
               </a>
-              <a href="mailto:info@haon-labor.com" class="flex items-center gap-3 p-3.5 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
+              <a href="mailto:jswcpla@gmail.com" class="flex items-center gap-3 p-3.5 bg-white/10 hover:bg-white/20 rounded-xl transition-colors">
                 <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -223,7 +228,7 @@ import { url } from '../utils/url';
                 </div>
                 <div>
                   <p class="text-xs text-gray-400">이메일</p>
-                  <p class="font-bold text-sm">info@haon-labor.com</p>
+                  <p class="font-bold text-sm">jswcpla@gmail.com</p>
                 </div>
               </a>
             </div>
@@ -272,48 +277,75 @@ import { url } from '../utils/url';
   </section>
 </Layout>
 
-<script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script is:inline>
+  // ─── EmailJS 설정값 ───────────────────────────────────────────────
+  // emailjs.com 에서 발급 후 아래 세 값을 교체하세요.
+  var EMAILJS_PUBLIC_KEY  = 'TI1CwzyxQ1AzqaTw1';   // Account > General
+  var EMAILJS_SERVICE_ID  = 'service_kew48ve';   // Email Services 탭
+  var EMAILJS_TEMPLATE_ID = 'template_yx0e5gl';  // Email Templates 탭
+  // ──────────────────────────────────────────────────────────────────
+
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
   // FAQ accordion
-  document.querySelectorAll('.faq-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling as HTMLElement;
-      const icon = btn.querySelector('.faq-icon');
-      answer?.classList.toggle('hidden');
-      icon?.classList.toggle('rotate-180');
+  document.querySelectorAll('.faq-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var answer = btn.nextElementSibling;
+      var icon = btn.querySelector('.faq-icon');
+      answer && answer.classList.toggle('hidden');
+      icon && icon.classList.toggle('rotate-180');
     });
   });
 
   // Form submit
-  const form = document.getElementById('consulting-form') as HTMLFormElement;
-  const successMsg = document.getElementById('success-msg');
+  var form = document.getElementById('consulting-form');
+  var successMsg = document.getElementById('success-msg');
+  var errorMsg = document.getElementById('error-msg');
+  var submitBtn = form && form.querySelector('button[type="submit"]');
+  var submitBtnOriginalHTML = submitBtn && submitBtn.innerHTML;
 
-  form?.addEventListener('submit', (e) => {
+  form && form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const required = form.querySelectorAll('[required]');
-    let valid = true;
+    var required = form.querySelectorAll('[required]');
+    var valid = true;
 
-    required.forEach((el) => {
-      const input = el as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
-      if (!input.value.trim() || (input.type === 'checkbox' && !(input as HTMLInputElement).checked)) {
+    required.forEach(function(el) {
+      if (!el.value.trim() || (el.type === 'checkbox' && !el.checked)) {
         valid = false;
-        input.classList.add('ring-2', 'ring-red-400', 'border-red-400');
-        input.addEventListener('input', () => {
-          input.classList.remove('ring-2', 'ring-red-400', 'border-red-400');
+        el.classList.add('ring-2', 'ring-red-400', 'border-red-400');
+        el.addEventListener('input', function() {
+          el.classList.remove('ring-2', 'ring-red-400', 'border-red-400');
         }, { once: true });
       }
     });
 
     if (!valid) {
-      const firstInvalid = form.querySelector('.ring-red-400') as HTMLElement;
-      firstInvalid?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      var firstInvalid = form.querySelector('.ring-red-400');
+      firstInvalid && firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
 
-    // 실제 서비스에서는 fetch로 백엔드 API나 Formspree 등에 전송
-    // fetch('https://formspree.io/f/YOUR_FORM_ID', { method: 'POST', body: new FormData(form) })
+    // 전송 중 버튼 비활성화
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg> 전송 중...';
+    }
+    errorMsg && errorMsg.classList.add('hidden');
 
-    form.classList.add('hidden');
-    successMsg?.classList.remove('hidden');
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+      .then(function() {
+        form.classList.add('hidden');
+        successMsg && successMsg.classList.remove('hidden');
+      })
+      .catch(function(err) {
+        console.error('EmailJS 오류:', err);
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = submitBtnOriginalHTML;
+        }
+        errorMsg && errorMsg.classList.remove('hidden');
+      });
   });
 </script>
