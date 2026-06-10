@@ -1,12 +1,14 @@
-﻿---
+---
+import { url, base } from '../utils/url';
+
 const guides = [
-  { label: '소음성 난청', href: '/guides/hearing-loss' },
-  { label: '근골격계 질환', href: '/guides/musculoskeletal' },
-  { label: '심뇌혈관 질환', href: '/guides/cardiovascular' },
-  { label: '폐질환', href: '/guides/lung-disease' },
-  { label: '직업성 암', href: '/guides/occupational-cancer' },
-  { label: '유족보상', href: '/guides/survivors-compensation' },
-  { label: '출퇴근 재해', href: '/guides/commuting-accident' },
+  { label: '소음성 난청', href: url('/guides/hearing-loss') },
+  { label: '근골격계 질환', href: url('/guides/musculoskeletal') },
+  { label: '심뇌혈관 질환', href: url('/guides/cardiovascular') },
+  { label: '폐질환', href: url('/guides/lung-disease') },
+  { label: '직업성 암', href: url('/guides/occupational-cancer') },
+  { label: '유족보상', href: url('/guides/survivors-compensation') },
+  { label: '출퇴근 재해', href: url('/guides/commuting-accident') },
 ];
 ---
 
@@ -16,7 +18,7 @@ const guides = [
       <!-- Brand -->
       <div class="lg:col-span-1">
         <div class="flex items-center gap-2 mb-4">
-          <img src="/logo.svg" alt="하온 로고" class="w-9 h-9" />
+          <img src={`${base}/logo.svg`} alt="하온 로고" class="w-9 h-9" />
           <div class="leading-tight">
             <div class="font-bold text-white text-base">하온 노무사 사무소</div>
             <div class="text-xs text-gold-400 tracking-wider">HAON LABOR OFFICE</div>
@@ -43,11 +45,11 @@ const guides = [
       <div>
         <h3 class="text-white font-semibold mb-4 text-sm tracking-wider uppercase">사무소 안내</h3>
         <ul class="space-y-2.5 text-sm">
-          <li><a href="/company-overview" class="hover:text-gold-400 transition-colors">대표 인사말</a></li>
-          <li><a href="/specialty" class="hover:text-gold-400 transition-colors">전문 분야</a></li>
-          <li><a href="/cases" class="hover:text-gold-400 transition-colors">성공사례</a></li>
-          <li><a href="/location" class="hover:text-gold-400 transition-colors">오시는 길</a></li>
-          <li><a href="/consulting" class="hover:text-gold-400 transition-colors">무료상담 신청</a></li>
+          <li><a href={url('/company-overview')} class="hover:text-gold-400 transition-colors">대표 인사말</a></li>
+          <li><a href={url('/specialty')} class="hover:text-gold-400 transition-colors">전문 분야</a></li>
+          <li><a href={url('/cases')} class="hover:text-gold-400 transition-colors">성공사례</a></li>
+          <li><a href={url('/location')} class="hover:text-gold-400 transition-colors">오시는 길</a></li>
+          <li><a href={url('/consulting')} class="hover:text-gold-400 transition-colors">무료상담 신청</a></li>
         </ul>
       </div>
 

@@ -1,15 +1,22 @@
-﻿---
+---
+import { url, base } from '../utils/url';
+
 const guides = [
-  { label: '소음성 난청', href: '/guides/hearing-loss' },
-  { label: '근골격계 질환', href: '/guides/musculoskeletal' },
-  { label: '심뇌혈관 질환', href: '/guides/cardiovascular' },
-  { label: '폐질환', href: '/guides/lung-disease' },
-  { label: '직업성 암', href: '/guides/occupational-cancer' },
-  { label: '유족보상', href: '/guides/survivors-compensation' },
-  { label: '출퇴근 재해', href: '/guides/commuting-accident' },
+  { label: '소음성 난청', href: url('/guides/hearing-loss') },
+  { label: '근골격계 질환', href: url('/guides/musculoskeletal') },
+  { label: '심뇌혈관 질환', href: url('/guides/cardiovascular') },
+  { label: '폐질환', href: url('/guides/lung-disease') },
+  { label: '직업성 암', href: url('/guides/occupational-cancer') },
+  { label: '유족보상', href: url('/guides/survivors-compensation') },
+  { label: '출퇴근 재해', href: url('/guides/commuting-accident') },
 ];
 
 const pathname = Astro.url.pathname;
+const active = (path: string) => {
+  const full = url(path);
+  return pathname === full || pathname === full + '/';
+};
+const guidesActive = guides.some(g => pathname === g.href || pathname === g.href + '/');
 ---
 
 <header class="bg-navy-900 text-white shadow-lg sticky top-0 z-50">
@@ -44,8 +51,8 @@ const pathname = Astro.url.pathname;
   <div class="max-w-6xl mx-auto px-4">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 group">
-        <img src="/logo.svg" alt="하온 로고" class="w-9 h-9 group-hover:opacity-90 transition-opacity" />
+      <a href={url('/')} class="flex items-center gap-2 group">
+        <img src={`${base}/logo.svg`} alt="하온 로고" class="w-9 h-9 group-hover:opacity-90 transition-opacity" />
         <div class="leading-tight">
           <div class="font-bold text-lg tracking-tight">하온 노무사 사무소</div>
           <div class="text-xs text-gold-400 tracking-wider">HAON LABOR OFFICE</div>
@@ -54,13 +61,13 @@ const pathname = Astro.url.pathname;
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-1">
-        <a href="/" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/' ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/') ? 'text-gold-400' : 'text-gray-200'}`}>
           홈
         </a>
-        <a href="/company-overview" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/company-overview' ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/company-overview')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/company-overview') ? 'text-gold-400' : 'text-gray-200'}`}>
           대표 인사말
         </a>
-        <a href="/specialty" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/specialty' ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/specialty')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/specialty') ? 'text-gold-400' : 'text-gray-200'}`}>
           전문 분야
         </a>
 
@@ -68,7 +75,7 @@ const pathname = Astro.url.pathname;
         <div class="relative" id="guides-menu">
           <button
             id="guides-btn"
-            class={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname.startsWith('/guides') ? 'text-gold-400' : 'text-gray-200'}`}
+            class={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${guidesActive ? 'text-gold-400' : 'text-gray-200'}`}
           >
             산재 가이드
             <svg class="w-4 h-4 transition-transform" id="guides-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +89,7 @@ const pathname = Astro.url.pathname;
             {guides.map((g) => (
               <a
                 href={g.href}
-                class={`block px-4 py-2.5 text-sm hover:bg-blue-50 hover:text-blue-700 transition-colors ${pathname === g.href ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700'}`}
+                class={`block px-4 py-2.5 text-sm hover:bg-blue-50 hover:text-blue-700 transition-colors ${(pathname === g.href || pathname === g.href + '/') ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700'}`}
               >
                 {g.label}
               </a>
@@ -90,13 +97,13 @@ const pathname = Astro.url.pathname;
           </div>
         </div>
 
-        <a href="/cases" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/cases' ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/cases')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/cases') ? 'text-gold-400' : 'text-gray-200'}`}>
           성공사례
         </a>
-        <a href="/location" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/location' ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/location')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/location') ? 'text-gold-400' : 'text-gray-200'}`}>
           오시는 길
         </a>
-        <a href="/consulting" class="ml-2 px-5 py-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold text-sm rounded-lg transition-colors whitespace-nowrap">
+        <a href={url('/consulting')} class="ml-2 px-5 py-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold text-sm rounded-lg transition-colors whitespace-nowrap">
           무료상담
         </a>
       </nav>
@@ -116,9 +123,9 @@ const pathname = Astro.url.pathname;
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden lg:hidden bg-navy-800 border-t border-white/10">
     <div class="max-w-6xl mx-auto px-4 py-3 space-y-1">
-      <a href="/" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">홈</a>
-      <a href="/company-overview" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">대표 인사말</a>
-      <a href="/specialty" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">전문 분야</a>
+      <a href={url('/')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">홈</a>
+      <a href={url('/company-overview')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">대표 인사말</a>
+      <a href={url('/specialty')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">전문 분야</a>
       <div>
         <button id="mobile-guides-btn" class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">
           산재 가이드
@@ -134,9 +141,9 @@ const pathname = Astro.url.pathname;
           ))}
         </div>
       </div>
-      <a href="/cases" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">성공사례</a>
-      <a href="/location" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">오시는 길</a>
-      <a href="/consulting" class="block mx-3 mt-3 py-3 bg-gold-500 text-navy-900 font-bold text-sm rounded-lg text-center">
+      <a href={url('/cases')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">성공사례</a>
+      <a href={url('/location')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">오시는 길</a>
+      <a href={url('/consulting')} class="block mx-3 mt-3 py-3 bg-gold-500 text-navy-900 font-bold text-sm rounded-lg text-center">
         무료상담 신청
       </a>
     </div>
