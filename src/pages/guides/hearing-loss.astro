@@ -1,0 +1,171 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="소음성 난청 산재 가이드" description="소음성 난청 산재 신청 방법, 인정 기준, 보상 내용 - 하온 노무사 사무소">
+
+  <section class="bg-navy-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm text-gold-400 mb-2">
+        <a href="/" class="hover:underline">홈</a>
+        <span class="mx-2">/</span>
+        <a href="/specialty" class="hover:underline">전문 분야</a>
+        <span class="mx-2">/</span>
+        <span>소음성 난청</span>
+      </div>
+      <div class="inline-block bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full mb-4">🦻 산재 가이드</div>
+      <h1 class="text-4xl font-black">소음성 난청</h1>
+      <p class="mt-3 text-gray-300 max-w-2xl">
+        오랜 소음 작업 환경에서 근무하다 청력을 잃으셨나요? 소음성 난청은 엄연한 직업성 질병으로 산재 보상을 받을 수 있습니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+
+      <!-- What is it -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-4">소음성 난청이란?</h2>
+        <p class="text-gray-600 leading-loose mb-4">
+          소음성 난청(Noise-Induced Hearing Loss)은 장기간 높은 소음 환경에 노출되어 달팽이관의 유모세포가 손상되는 직업성 질환입니다.
+          주로 <strong class="text-navy-900">조선업, 제조업, 건설업, 광업</strong> 종사자에게 발생하며, 소음이 멈춰도 청력이 회복되지 않는 비가역적 손상입니다.
+        </p>
+        <p class="text-gray-600 leading-loose">
+          산업안전보건법상 85dB(A) 이상 소음에 일정 기간 노출된 경우 직업성 질병으로 인정받아 산재 보상을 청구할 수 있습니다.
+        </p>
+      </div>
+
+      <!-- Recognition criteria -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">산재 인정 기준</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            {
+              title: '소음 노출 기준',
+              items: ['85dB(A) 이상 소음 작업장에서 근무', '3년 이상 해당 소음 환경 지속 근무', '소음 노출 이력이 작업환경측정 등으로 확인 가능'],
+            },
+            {
+              title: '청력 검사 기준',
+              items: ['양측 청력손실이 40dB 이상 (6분법 기준)', '고주파 영역(3,000~6,000Hz) 청력손실이 현저', '기도-골도 청력 일치 (감각신경성 난청 소견)'],
+            },
+            {
+              title: '배제 기준',
+              items: ['다른 원인에 의한 난청이 아닐 것', '노인성 난청과 구분 필요', '외상성 난청 여부 확인'],
+            },
+            {
+              title: '주요 대상 업종',
+              items: ['조선업 (그라인더, 용접, 해머)', '광업 (착암기, 폭파 작업)', '제조업 (프레스, 금속 가공)', '건설업 (항타기, 해체 작업)'],
+            },
+          ].map((box) => (
+            <div class="bg-gray-50 rounded-2xl p-5">
+              <h3 class="font-bold text-navy-900 mb-3 text-sm">{box.title}</h3>
+              <ul class="space-y-2">
+                {box.items.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-gray-600">
+                    <svg class="w-4 h-4 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Compensation -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">받을 수 있는 보상</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-navy-900 text-white">
+                <th class="px-4 py-3 text-left rounded-tl-xl">보상 종류</th>
+                <th class="px-4 py-3 text-left">내용</th>
+                <th class="px-4 py-3 text-left rounded-tr-xl">기준</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['장해급여', '청력손실 정도에 따른 일시금 또는 연금', '9~14급 해당 가능'],
+                ['요양급여', '청력 검사, 보청기 지원 등 치료비 전액', '산재 승인 후'],
+                ['휴업급여', '치료 기간 중 평균임금의 70% 지급', '입원·요양 기간'],
+                ['직업재활급여', '장해 후 직업훈련·복귀 지원', '해당 요건 충족 시'],
+              ].map(([a, b, c], i) => (
+                <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <td class="px-4 py-3 font-semibold text-navy-900 border border-gray-100">{a}</td>
+                  <td class="px-4 py-3 text-gray-600 border border-gray-100">{b}</td>
+                  <td class="px-4 py-3 text-gray-500 border border-gray-100">{c}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Process -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">신청 절차</h2>
+        <div class="space-y-4">
+          {[
+            { n: '01', title: '청력검사 실시', desc: '산재 지정 병원에서 순음청력검사(PTA) 실시. 2~3회 검사로 신뢰성 확보.' },
+            { n: '02', title: '직업력 정리', desc: '근무 기간, 작업 내용, 소음 수준 등 구체적인 직업력 작성. 동료 진술서 확보.' },
+            { n: '03', title: '작업환경 자료 수집', desc: '작업환경측정 결과, 소음 노출 기록, 청력보존프로그램 이행 자료 등 수집.' },
+            { n: '04', title: '요양급여 신청', desc: '근로복지공단에 요양급여 신청서 제출. 심사 기간 약 30~60일.' },
+            { n: '05', title: '장해급여 청구', desc: '치료 종결 후 청력손실 고정 확인 시 장해급여 청구. 장해등급에 따라 지급 금액 결정.' },
+          ].map((step) => (
+            <div class="flex gap-4 p-5 bg-gray-50 rounded-xl">
+              <div class="w-10 h-10 bg-navy-900 text-gold-400 rounded-xl flex items-center justify-center font-black text-sm shrink-0">
+                {step.n}
+              </div>
+              <div>
+                <h3 class="font-bold text-navy-900 mb-1">{step.title}</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Why difficult -->
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-12">
+        <h2 class="text-lg font-bold text-amber-900 mb-3">⚠️ 소음성 난청 산재가 어려운 이유</h2>
+        <ul class="space-y-2 text-sm text-amber-800">
+          <li class="flex items-start gap-2">
+            <span class="font-bold shrink-0">·</span>
+            청력손실이 서서히 진행되어 발병 시점 특정이 어렵습니다.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold shrink-0">·</span>
+            노인성 난청과 감별이 필요해 의학적 입증이 복잡합니다.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold shrink-0">·</span>
+            과거 소음 측정 기록이 없는 경우가 많아 노출 이력 입증이 어렵습니다.
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="font-bold shrink-0">·</span>
+            고용주나 회사가 소음 수준을 낮게 보고한 경우 반증이 필요합니다.
+          </li>
+        </ul>
+        <p class="mt-4 text-sm text-amber-700 font-medium">→ 전문 노무사의 도움 없이 단독 신청 시 불승인 사례가 많습니다. 반드시 전문가와 함께하세요.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="bg-navy-900 rounded-2xl p-8 text-center text-white">
+        <h2 class="text-2xl font-black mb-3">소음성 난청 무료 상담</h2>
+        <p class="text-gray-300 text-sm mb-6">근무 기간, 업종, 청력검사 결과를 알려주시면 산재 가능성을 즉시 분석해드립니다.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/consulting" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">
+            온라인 상담 신청
+          </a>
+          <a href="tel:0212345678" class="px-8 py-3.5 border border-white/30 hover:bg-white/10 font-semibold rounded-xl transition-colors">
+            02-1234-5678 전화상담
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

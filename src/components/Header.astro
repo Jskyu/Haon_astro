@@ -1,0 +1,181 @@
+﻿---
+const guides = [
+  { label: '소음성 난청', href: '/guides/hearing-loss' },
+  { label: '근골격계 질환', href: '/guides/musculoskeletal' },
+  { label: '심뇌혈관 질환', href: '/guides/cardiovascular' },
+  { label: '폐질환', href: '/guides/lung-disease' },
+  { label: '직업성 암', href: '/guides/occupational-cancer' },
+  { label: '유족보상', href: '/guides/survivors-compensation' },
+  { label: '출퇴근 재해', href: '/guides/commuting-accident' },
+];
+
+const pathname = Astro.url.pathname;
+---
+
+<header class="bg-navy-900 text-white shadow-lg sticky top-0 z-50">
+  <!-- Top bar -->
+  <div class="bg-navy-950 text-sm py-1.5 hidden md:block">
+    <div class="max-w-6xl mx-auto px-4 flex justify-end gap-6 text-gray-300">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+        02-1234-5678
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+        info@haon-labor.com
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        평일 09:00–18:00 | 토 09:00–13:00
+      </span>
+    </div>
+  </div>
+
+  <!-- Main nav -->
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <img src="/logo.svg" alt="하온 로고" class="w-9 h-9 group-hover:opacity-90 transition-opacity" />
+        <div class="leading-tight">
+          <div class="font-bold text-lg tracking-tight">하온 노무사 사무소</div>
+          <div class="text-xs text-gold-400 tracking-wider">HAON LABOR OFFICE</div>
+        </div>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="/" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/' ? 'text-gold-400' : 'text-gray-200'}`}>
+          홈
+        </a>
+        <a href="/company-overview" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/company-overview' ? 'text-gold-400' : 'text-gray-200'}`}>
+          대표 인사말
+        </a>
+        <a href="/specialty" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/specialty' ? 'text-gold-400' : 'text-gray-200'}`}>
+          전문 분야
+        </a>
+
+        <!-- Guides dropdown -->
+        <div class="relative" id="guides-menu">
+          <button
+            id="guides-btn"
+            class={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname.startsWith('/guides') ? 'text-gold-400' : 'text-gray-200'}`}
+          >
+            산재 가이드
+            <svg class="w-4 h-4 transition-transform" id="guides-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div
+            id="guides-dropdown"
+            class="hidden absolute top-full left-0 mt-1 w-44 bg-white rounded-lg shadow-xl border border-gray-100 py-1 z-50"
+          >
+            {guides.map((g) => (
+              <a
+                href={g.href}
+                class={`block px-4 py-2.5 text-sm hover:bg-blue-50 hover:text-blue-700 transition-colors ${pathname === g.href ? 'text-blue-700 bg-blue-50 font-medium' : 'text-gray-700'}`}
+              >
+                {g.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <a href="/cases" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/cases' ? 'text-gold-400' : 'text-gray-200'}`}>
+          성공사례
+        </a>
+        <a href="/location" class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${pathname === '/location' ? 'text-gold-400' : 'text-gray-200'}`}>
+          오시는 길
+        </a>
+        <a href="/consulting" class="ml-2 px-5 py-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold text-sm rounded-lg transition-colors whitespace-nowrap">
+          무료상담
+        </a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" class="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="메뉴 열기">
+        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-navy-800 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-3 space-y-1">
+      <a href="/" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">홈</a>
+      <a href="/company-overview" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">대표 인사말</a>
+      <a href="/specialty" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">전문 분야</a>
+      <div>
+        <button id="mobile-guides-btn" class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">
+          산재 가이드
+          <svg class="w-4 h-4 transition-transform" id="mobile-guides-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobile-guides-dropdown" class="hidden pl-4 mt-1 space-y-1">
+          {guides.map((g) => (
+            <a href={g.href} class="block px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-md">
+              {g.label}
+            </a>
+          ))}
+        </div>
+      </div>
+      <a href="/cases" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">성공사례</a>
+      <a href="/location" class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">오시는 길</a>
+      <a href="/consulting" class="block mx-3 mt-3 py-3 bg-gold-500 text-navy-900 font-bold text-sm rounded-lg text-center">
+        무료상담 신청
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  hamburger?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    hamburgerIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+
+  const guidesBtn = document.getElementById('guides-btn');
+  const guidesDropdown = document.getElementById('guides-dropdown');
+  const guidesArrow = document.getElementById('guides-arrow');
+
+  guidesBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    guidesDropdown?.classList.toggle('hidden');
+    guidesArrow?.classList.toggle('rotate-180');
+  });
+
+  document.addEventListener('click', () => {
+    guidesDropdown?.classList.add('hidden');
+    guidesArrow?.classList.remove('rotate-180');
+  });
+
+  const mobileGuidesBtn = document.getElementById('mobile-guides-btn');
+  const mobileGuidesDropdown = document.getElementById('mobile-guides-dropdown');
+  const mobileGuidesArrow = document.getElementById('mobile-guides-arrow');
+
+  mobileGuidesBtn?.addEventListener('click', () => {
+    mobileGuidesDropdown?.classList.toggle('hidden');
+    mobileGuidesArrow?.classList.toggle('rotate-180');
+  });
+</script>

@@ -1,0 +1,139 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="출퇴근 재해 산재 가이드" description="출퇴근 중 사고 산재 신청 - 교통사고, 낙상 등 - 하온 노무사 사무소">
+
+  <section class="bg-navy-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="text-sm text-gold-400 mb-2">
+        <a href="/" class="hover:underline">홈</a>
+        <span class="mx-2">/</span>
+        <a href="/specialty" class="hover:underline">전문 분야</a>
+        <span class="mx-2">/</span>
+        <span>출퇴근 재해</span>
+      </div>
+      <div class="inline-block bg-gold-500 text-navy-900 text-xs font-bold px-3 py-1 rounded-full mb-4">🚌 산재 가이드</div>
+      <h1 class="text-4xl font-black">출퇴근 재해</h1>
+      <p class="mt-3 text-gray-300 max-w-2xl">
+        2018년 1월 1일부터 출퇴근 중 사고도 산재로 인정됩니다. 버스·지하철·자전거·도보 중 사고 모두 해당됩니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-16 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+
+      <div class="mb-12">
+        <div class="bg-green-50 border border-green-200 rounded-2xl p-6 mb-8">
+          <h2 class="text-lg font-bold text-green-900 mb-2">✅ 2018년 1월 1일부터 전면 시행</h2>
+          <p class="text-sm text-green-800 leading-relaxed">
+            산업재해보상보험법 개정으로 2018년 1월 1일 이후 발생한 출퇴근 중 사고는 업무상 재해로 인정됩니다.
+            고용주의 지배·관리 아래 있지 않아도 <strong>통상적인 경로와 방법</strong>으로 출퇴근하던 중 발생한 사고면 됩니다.
+          </p>
+        </div>
+
+        <h2 class="text-2xl font-black text-navy-900 mb-4">출퇴근 재해란?</h2>
+        <p class="text-gray-600 leading-loose">
+          집에서 직장, 직장에서 집으로 이동하는 과정에서 발생한 사고를 말합니다.
+          자가용, 대중교통, 도보, 자전거 등 이동 수단에 관계없이 적용됩니다.
+        </p>
+      </div>
+
+      <!-- What's covered -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">인정되는 사고 유형</h2>
+        <div class="grid sm:grid-cols-2 gap-4">
+          {[
+            { icon: '🚗', title: '자동차 교통사고', desc: '출퇴근 중 발생한 자동차 충돌·추돌 사고. 과실 비율 무관.' },
+            { icon: '🚌', title: '대중교통 사고', desc: '버스·지하철·택시 이용 중 발생한 사고, 하차 시 낙상.' },
+            { icon: '🚲', title: '자전거 사고', desc: '자전거로 통근 중 발생한 교통사고, 낙차 사고.' },
+            { icon: '🚶', title: '도보 사고', desc: '보도 위 낙상, 빙판길 미끄러짐, 횡단보도 사고.' },
+            { icon: '🛴', title: '킥보드·PM', desc: '전동킥보드 등 개인형이동장치 이용 중 사고.' },
+            { icon: '🏍️', title: '오토바이 사고', desc: '오토바이 이용 출퇴근 중 사고 (자해 사고 아닌 경우).' },
+          ].map((item) => (
+            <div class="flex gap-3 p-4 bg-gray-50 rounded-xl">
+              <span class="text-2xl">{item.icon}</span>
+              <div>
+                <h3 class="font-bold text-navy-900 text-sm mb-1">{item.title}</h3>
+                <p class="text-xs text-gray-600">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Route -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-6">통상적 경로 이탈 시 처리</h2>
+        <p class="text-gray-600 text-sm mb-5">출퇴근 경로를 이탈한 경우에도 아래 사유에 해당하면 산재로 인정됩니다.</p>
+        <div class="space-y-3">
+          {[
+            '일상생활에 필요한 행위 (식료품 구매, ATM 이용, 약국 방문 등)',
+            '사업주가 제공한 교통수단 이용 중 발생한 사고',
+            '직장 동료의 차량 탑승 중 사고',
+            '일시적 경로 변경 후 통상 경로 복귀 중 사고',
+            '음주·자해 등 본인 과실이 없는 경우',
+          ].map((item) => (
+            <div class="flex items-start gap-2 text-sm text-gray-600 p-3.5 bg-blue-50 rounded-xl">
+              <svg class="w-4 h-4 text-blue-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {item}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-5">받을 수 있는 보상</h2>
+        <div class="grid sm:grid-cols-3 gap-4 text-sm">
+          {[
+            { title: '요양급여', desc: '치료에 필요한 모든 비용 (입원, 수술, 재활 등)' },
+            { title: '휴업급여', desc: '요양 기간 중 평균임금의 70% 지급' },
+            { title: '장해급여', desc: '치료 후 장해가 남은 경우 등급에 따라 지급' },
+          ].map((b) => (
+            <div class="bg-navy-900 text-white rounded-xl p-5 text-center">
+              <h3 class="font-bold text-gold-400 mb-2">{b.title}</h3>
+              <p class="text-gray-300 text-xs leading-relaxed">{b.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p class="text-xs text-gray-400 mt-3">※ 출퇴근 재해는 제3자(가해 운전자 등)의 손해배상과 별도로 산재 신청이 가능합니다.</p>
+      </div>
+
+      <!-- Steps -->
+      <div class="mb-12">
+        <h2 class="text-2xl font-black text-navy-900 mb-5">출퇴근 재해 신청 절차</h2>
+        <div class="space-y-3">
+          {[
+            { n: '01', t: '사고 즉시 병원 방문', d: '사고 경위를 의료진에게 상세히 설명하고 "출퇴근 중 사고"임을 기록에 남기세요.' },
+            { n: '02', t: '증거 수집', d: '사고 현장 사진, CCTV 자료, 블랙박스 영상, 목격자 연락처 확보.' },
+            { n: '03', t: '경찰·보험 신고', d: '교통사고의 경우 경찰 신고 후 사고확인원을 받아두세요.' },
+            { n: '04', t: '산재 신청', d: '근로복지공단 요양급여 신청서 제출. 출퇴근 경로 증빙 자료 함께 제출.' },
+          ].map((s) => (
+            <div class="flex gap-4 p-4 bg-gray-50 rounded-xl">
+              <div class="w-8 h-8 bg-navy-900 text-gold-400 rounded-lg flex items-center justify-center font-black text-xs shrink-0">
+                {s.n}
+              </div>
+              <div>
+                <p class="font-bold text-navy-900 text-sm">{s.t}</p>
+                <p class="text-xs text-gray-500 mt-0.5">{s.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="bg-navy-900 rounded-2xl p-8 text-center text-white">
+        <h2 class="text-2xl font-black mb-3">출퇴근 재해 무료 상담</h2>
+        <p class="text-gray-300 text-sm mb-6">사고 경위와 부상 내용을 말씀해 주시면 산재 가능성을 바로 확인해드립니다.</p>
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="/consulting" class="px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">온라인 상담 신청</a>
+          <a href="tel:0212345678" class="px-8 py-3.5 border border-white/30 hover:bg-white/10 font-semibold rounded-xl transition-colors">02-1234-5678</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
