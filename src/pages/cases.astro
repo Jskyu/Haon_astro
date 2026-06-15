@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 import { url } from '../utils/url';
 
@@ -89,6 +89,7 @@ const cases = [
 
 <Layout title="성공사례" description="하온 노동법률사무소 산재 성공사례 - 소음성 난청, 심뇌혈관, 근골격계, 직업성 암, 출퇴근재해">
 
+  <!-- 페이지 헤더 -->
   <section class="bg-navy-900 text-white py-16">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-sm text-gold-400 mb-2">
@@ -104,8 +105,8 @@ const cases = [
   </section>
 
   <!-- Stats -->
-  <section class="bg-blue-700 py-10">
-    <div class="max-w-4xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-white">
+  <section class="bg-navy-800 py-10">
+    <div class="max-w-4xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
       {[
         { n: '2,400+', l: '총 승인 건수' },
         { n: '98%', l: '승인율' },
@@ -113,8 +114,8 @@ const cases = [
         { n: '0원', l: '산재 상담비' },
       ].map((s) => (
         <div>
-          <div class="text-3xl font-black text-white-400">{s.n}</div>
-          <div class="text-sm text-blue-200 mt-1">{s.l}</div>
+          <div class="text-3xl font-black text-gold-400">{s.n}</div>
+          <div class="text-sm text-gray-400 mt-1">{s.l}</div>
         </div>
       ))}
     </div>
@@ -125,25 +126,26 @@ const cases = [
     <div class="max-w-6xl mx-auto px-4">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cases.map((c) => (
-          <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+          <div class="bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-md transition-shadow">
             <div class="bg-navy-900 px-5 py-3 flex items-center justify-between">
-              <span class="text-xs font-bold text-amber-50">{c.category}</span>
-              <span class="text-xs font-semibold text-green-300 flex items-center gap-1">
+              <span class="text-xs font-bold text-gold-400 tracking-wider">{c.category}</span>
+              <span class="text-xs font-semibold text-white/70 flex items-center gap-1">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                 </svg>
+                {c.result}
               </span>
             </div>
             <div class="p-6">
               <h3 class="font-bold text-navy-900 text-base mb-1">{c.title}</h3>
               <p class="text-xs text-gray-400 mb-4">{c.company}</p>
               <p class="text-sm text-gray-600 leading-relaxed mb-4">{c.desc}</p>
-              <div class="bg-blue-50 rounded-xl p-3.5 mb-4">
-                <p class="text-xs text-blue-700 font-medium">{c.point}</p>
+              <div class="bg-stone-50 rounded-xl p-3.5 mb-4">
+                <p class="text-xs text-stone-600 font-medium">{c.point}</p>
               </div>
               <div class="flex items-center justify-between pt-3 border-t border-gray-100">
                 <span class="text-xs text-gray-400">수령 금액</span>
-                <span class="text-base font-black text-blue-700">{c.amount}</span>
+                <span class="text-base font-black text-gold-600">{c.amount}</span>
               </div>
             </div>
           </div>
@@ -152,6 +154,7 @@ const cases = [
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="py-14 bg-navy-900 text-center text-white">
     <div class="max-w-2xl mx-auto px-4">
       <h2 class="text-2xl font-black mb-3">나도 산재 신청이 가능할까요?</h2>
