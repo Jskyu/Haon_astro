@@ -45,18 +45,24 @@ import { url } from '../../utils/url';
             {
               title: '유족보상연금',
               badge: '선택',
+              badge_back: 'bg-blue-400',
+              badge_text: 'text-amber-50',
               desc: '매년 평균임금의 52~67%를 연금으로 지급. 유족 수에 따라 금액 차등.',
               details: ['수급권자: 배우자, 자녀, 부모, 손자녀, 조부모 등', '수급자격 상실 시(재혼 등) 연금 지급 종료', '가족 수에 따라 연금액 가산 (1인당 5%)'],
             },
             {
               title: '유족보상일시금',
               badge: '선택',
+              badge_back: 'bg-blue-400',
+              badge_text: 'text-amber-50',
               desc: '평균임금의 1,300일치 일시 지급. 수급 자격자가 없거나 연금 미선택 시.',
               details: ['연금과 달리 한 번에 수령', '유족 중 선순위자 전액 수령', '연금 선택 후 포기 불가능'],
             },
             {
               title: '장의비',
               badge: '필수',
+              badge_back: 'bg-fuchsia-200',
+              badge_text: 'text-red-700',
               desc: '장제에 소요되는 비용 지원. 평균임금의 120일치 또는 최고·최저 금액 내.',
               details: ['업무상 사망 확인 즉시 청구 가능', '장례 진행 전 산재 승인 여부 확인 권장', '실제 장례비용과 무관하게 정액 지급'],
             },
@@ -64,7 +70,7 @@ import { url } from '../../utils/url';
             <div class="bg-gray-50 rounded-2xl p-6">
               <div class="flex items-center gap-3 mb-3">
                 <h3 class="font-bold text-navy-900">{b.title}</h3>
-                <span class="text-xs bg-navy-900 text-gold-400 px-2.5 py-0.5 rounded-full font-medium">{b.badge}</span>
+                <span class={`text-xs ${b.badge_back} ${b.badge_text} px-2.5 py-0.5 rounded-full font-medium`}>{b.badge}</span>
               </div>
               <p class="text-sm text-gray-600 mb-4">{b.desc}</p>
               <ul class="space-y-1.5">
@@ -104,7 +110,7 @@ import { url } from '../../utils/url';
                 ['6순위', '형제자매', '19세 미만 또는 60세 이상, 장애인'],
               ].map(([rank, target, req], i) => (
                 <tr class={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
-                  <td class="px-4 py-3 font-bold text-blue-700 border border-gray-100">{rank}</td>
+                  <td class="px-4 py-3 font-bold text-blue-800 border border-gray-100">{rank}</td>
                   <td class="px-4 py-3 font-semibold text-navy-900 border border-gray-100">{target}</td>
                   <td class="px-4 py-3 text-gray-600 border border-gray-100">{req}</td>
                 </tr>
