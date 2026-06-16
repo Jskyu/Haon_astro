@@ -17,9 +17,9 @@ const cases = [
     title: '화물차 기사 급성심근경색',
     company: '운송업 / 남성',
     result: '유족급여 인정',
-    amount: '유족급여+장례비 114,648,590원 + 매月 연금',
+    amount: '총 114,648,590원 + 매月 연금 수령',
     desc: '지병(고혈압)이 있으셨으나, 과로와 업무부담 가중요인 주장하여 산재 유족급여 인정',
-    point: '유족급여+장례비 114,648,590원 + 매月 연금 수령',
+    point: '유족급여·장례비 포함 114,648,590원\n + 매月 연금 수령',
   },
   {
     category: '직업성 암',
@@ -28,7 +28,7 @@ const cases = [
     result: '산재 승인',
     amount: '61,590,320원 등',
     desc: '업무 내용·근무환경 정리, 직업환경연구원 자료 및 산업안전보건공단 자료 등 제출하여 업무 중 발암물질 노출 입증을 통해 폐암 승인',
-    point: '병원비, 휴업급여 61,590,320원 등 수령',
+    point: '병원비·휴업급여 61,590,320원 등 수령',
   },
   {
     category: '근골격계',
@@ -116,7 +116,7 @@ const cases = [
               <p class="text-xs text-gray-400 mb-4">{c.company}</p>
               <p class="text-sm text-gray-600 leading-relaxed mb-4">{c.desc}</p>
               <div class="bg-stone-50 rounded-xl p-3.5 mb-4">
-                <p class="text-xs text-stone-600 font-medium">{c.point}</p>
+                <p class="text-xs text-stone-600 font-medium whitespace-pre-line">{c.point}</p>
               </div>
               <div class="flex items-center justify-between pt-3 border-t border-gray-100">
                 <span class="text-xs text-gray-400">수령 금액</span>
