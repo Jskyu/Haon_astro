@@ -1,20 +1,10 @@
 ---
 import { url, base } from '../utils/url';
-
-const guides = [
-  { label: '소음성 난청', href: url('/guides/hearing-loss') },
-  { label: '근골격계 질환', href: url('/guides/musculoskeletal') },
-  { label: '심뇌혈관 질환', href: url('/guides/cardiovascular') },
-  { label: '폐질환', href: url('/guides/lung-disease') },
-  { label: '직업성 암', href: url('/guides/occupational-cancer') },
-  { label: '유족보상', href: url('/guides/survivors-compensation') },
-  { label: '출퇴근 재해', href: url('/guides/commuting-accident') },
-];
 ---
 
 <footer class="bg-navy-900 text-gray-300">
   <div class="max-w-6xl mx-auto px-4 py-14">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       <!-- Brand -->
       <div class="lg:col-span-1">
         <div class="flex items-center gap-2 mb-4">
@@ -53,18 +43,6 @@ const guides = [
         </ul>
       </div>
 
-      <!-- Guides -->
-      <div>
-        <h3 class="text-white font-semibold mb-4 text-sm tracking-wider uppercase">산재 가이드</h3>
-        <ul class="space-y-2.5 text-sm">
-          {guides.map((g) => (
-            <li>
-              <a href={g.href} class="hover:text-gold-400 transition-colors">{g.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
       <!-- Contact -->
       <div>
         <h3 class="text-white font-semibold mb-4 text-sm tracking-wider uppercase">연락처</h3>
@@ -74,7 +52,7 @@ const guides = [
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span class="text-gray-400">부산 북구 백암대로 1167-1, 2층</span>
+            <span class="text-gray-400">부산 북구 백양대로 1167-1, 2층</span>
           </li>
           <li class="flex items-center gap-2.5">
             <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">

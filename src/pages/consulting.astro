@@ -72,6 +72,21 @@ import { url } from '../utils/url';
                 />
               </div>
 
+              <!-- Region -->
+              <div>
+                <label for="region" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                  지역 <span class="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="region"
+                  name="region"
+                  placeholder="예: 부산 북구 또는 경상남도 거제"
+                  required
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                />
+              </div>
+
               <!-- Consultation type -->
               <div>
                 <label for="type" class="block text-sm font-semibold text-gray-700 mb-1.5">
@@ -85,13 +100,14 @@ import { url } from '../utils/url';
                 >
                   <option value="">— 해당 분야를 선택해 주세요 —</option>
                   <option value="hearing-loss">소음성 난청</option>
-                  <option value="musculoskeletal">근골격계 질환 (요통, 관절, 손목 등)</option>
-                  <option value="cardiovascular">심뇌혈관 질환 (뇌졸중, 심근경색)</option>
-                  <option value="lung-disease">폐질환 (진폐증, 석면, 천식)</option>
+                  <option value="musculoskeletal">근골격계 질병 (무릎, 어깨, 허리 등)</option>
+                  <option value="cardiovascular">뇌심혈관 질병 (뇌출혈, 심근경색 등)</option>
+                  <option value="lung-disease">폐질환 (천식, 진폐, COPD, 석면폐증 등)</option>
                   <option value="occupational-cancer">직업성 암</option>
                   <option value="survivors-compensation">유족보상</option>
                   <option value="commuting-accident">출퇴근 재해</option>
                   <option value="appeal">산재 불승인 이의신청</option>
+                  <option value="wage-adjustment">평균임금 정정</option>
                   <option value="other">기타</option>
                 </select>
               </div>
@@ -241,19 +257,19 @@ import { url } from '../utils/url';
               {[
                 {
                   q: '상담 비용이 있나요?',
-                  a: '산재 상담은 완전 무료입니다. 산재 승인 후 성공보수를 받습니다.',
+                  a: '산재 상담은 무료입니다. 저희는 산재 승인 후 성공보수를 받습니다.',
                 },
                 {
-                  q: '다른 지역에서도 상담 가능한가요?',
-                  a: '전국 어디서든 전화·이메일·방문 상담이 가능합니다.',
+                  q: '실업급여를 받았어요. 산재도 가능한가요?',
+                  a: '네. 가능합니다. 요양급여, 장해급여 등 받을 수 있는 산재 보상금이 있습니다.',
                 },
                 {
-                  q: '불승인 받았는데 다시 신청할 수 있나요?',
-                  a: '네, 심사청구(90일 이내), 재심사청구, 행정소송 등 단계별로 대응 가능합니다.',
+                  q: '나이가 80세입니다. 산재 신청할 수 있을까요?',
+                  a: '네. 나이가 80세가 넘으셔도 산재 신청이 가능합니다.',
                 },
                 {
-                  q: '산재 신청 시효가 있나요?',
-                  a: '요양급여는 3년, 장해급여는 5년, 유족급여는 5년의 소멸시효가 있습니다. 빠를수록 좋습니다.',
+                  q: '10년 전에 퇴직했어요. 산재 신청 가능한가요?',
+                  a: '네. 상병마다 다르지만, 가능할 수 있습니다. 무료 상담을 받아보시길 추천드립니다.',
                 },
               ].map((faq, i) => (
                 <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">

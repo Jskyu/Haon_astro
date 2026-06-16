@@ -71,8 +71,8 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
           전문 분야
         </a>
 
-        <!-- Guides dropdown -->
-        <div class="relative" id="guides-menu">
+        <!-- Guides dropdown - HIDDEN -->
+        <!-- <div class="relative" id="guides-menu">
           <button
             id="guides-btn"
             class={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${guidesActive ? 'text-gold-400' : 'text-gray-200'}`}
@@ -95,7 +95,7 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
               </a>
             ))}
           </div>
-        </div>
+        </div> -->
 
         <a href={url('/cases')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/cases') ? 'text-gold-400' : 'text-gray-200'}`}>
           성공사례
@@ -126,7 +126,8 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
       <a href={url('/')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">홈</a>
       <a href={url('/company-overview')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">대표 인사말</a>
       <a href={url('/specialty')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">전문 분야</a>
-      <div>
+      <!-- Mobile Guides - HIDDEN -->
+      <!-- <div>
         <button id="mobile-guides-btn" class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">
           산재 가이드
           <svg class="w-4 h-4 transition-transform" id="mobile-guides-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +141,7 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
             </a>
           ))}
         </div>
-      </div>
+      </div> -->
       <a href={url('/cases')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">성공사례</a>
       <a href={url('/location')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">오시는 길</a>
       <a href={url('/consulting')} class="block mx-3 mt-3 py-3 bg-gold-500 text-navy-900 font-bold text-sm rounded-lg text-center">

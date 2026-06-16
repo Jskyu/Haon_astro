@@ -4,85 +4,67 @@ import { url } from '../utils/url';
 
 const cases = [
   {
+    category: '근골격계',
+    title: '건설업 15년 근무 형틀목공',
+    company: '건설업 / 남성',
+    result: '산재 승인',
+    amount: '92,927,290원',
+    desc: '"나이가 들어서 그렇겠지"라며 주저하셨으나, 의학적·법리적 쟁점 분석 및 인과관계 입증하여 산재 승인',
+    point: '장해급여 92,927,290원 수령',
+  },
+  {
+    category: '뇌심혈관',
+    title: '화물차 기사 급성심근경색',
+    company: '운송업 / 남성',
+    result: '유족급여 인정',
+    amount: '유족급여+장례비 114,648,590원 + 매月 연금',
+    desc: '지병(고혈압)이 있으셨으나, 과로와 업무부담 가중요인 주장하여 산재 유족급여 인정',
+    point: '유족급여+장례비 114,648,590원 + 매月 연금 수령',
+  },
+  {
+    category: '직업성 암',
+    title: '자동차 공업사 근로자 폐암',
+    company: '자동차 정비업 / 남성',
+    result: '산재 승인',
+    amount: '61,590,320원 등',
+    desc: '업무 내용·근무환경 정리, 직업환경연구원 자료 및 산업안전보건공단 자료 등 제출하여 업무 중 발암물질 노출 입증을 통해 폐암 승인',
+    point: '병원비, 휴업급여 61,590,320원 등 수령',
+  },
+  {
+    category: '근골격계',
+    title: '건설 근로자 어깨 회전근개 파열',
+    company: '건설업 / 남성',
+    result: '산재 승인',
+    amount: '95,447,910원',
+    desc: '장기간 건설 현장 근무로 인한 어깨 회전근개 파열. 수술 및 재활치료 진행',
+    point: '수술비 전액 산재 처리, 장해급여 95,447,910원 수령',
+  },
+  {
     category: '소음성 난청',
-    title: '25년 조선소 용접공 소음성 난청',
-    company: '현장직 / 남성 58세',
+    title: '중공업 사상 작업자 소음성 난청',
+    company: '중공업 / 남성',
     result: '산재 승인',
-    amount: '4,200만원',
-    desc: '25년간 조선소에서 용접·그라인더 작업. 양측 고주파 청력손실 50dB 이상. 초기 1차 신청 불승인 후, 소음 노출 측정 기록·작업 일지·동료 진술서를 통해 업무 연관성 재입증.',
-    point: '3차 심사청구 끝에 승인. 장해등급 9급 인정.',
-  },
-  {
-    category: '심뇌혈관',
-    title: 'IT 회사 팀장 뇌경색',
-    company: '사무직 / 남성 44세',
-    result: '산재 승인',
-    amount: '8,700만원',
-    desc: '대규모 프로젝트 마감 전 3개월간 주 80시간 이상 야근 지속. 업무 스트레스, 수면 부족. 발병 당일까지 근무 기록 확보하여 만성 과로 입증.',
-    point: '휴업급여+장해급여 수령. 재활치료비 전액 산재 처리.',
-  },
-  {
-    category: '근골격계',
-    title: '택배 분류 작업자 요추 추간판 탈출증',
-    company: '물류업 / 남성 39세',
-    result: '산재 승인',
-    amount: '2,100만원',
-    desc: '하루 8시간 이상 택배 상자 들기·분류 반복 작업. L4-L5 추간판 탈출증. 사측에서 업무 연관성 부인했으나 작업 동영상 확보 및 인간공학적 평가로 입증.',
-    point: '수술비 전액 산재 처리, 장해급여 지급.',
+    amount: '69,101,200원',
+    desc: '30년 이상 그라인더 사상 작업으로 인한 소음성 난청. 장기간 85dB 이상 소음 노출 환경에서 근무',
+    point: '장해급여 69,101,200원 수령',
   },
   {
     category: '직업성 암',
-    title: '도장공 폐암 유족보상',
-    company: '건설업 / 남성 (사망, 향년 63세)',
-    result: '유족급여 지급',
-    amount: '1억 2,000만원',
-    desc: '30년 이상 건설 현장 도장 작업. 벤젠, 톨루엔 등 유기용제 지속 흡입. 사망 후 유족이 의뢰. 작업환경 측정 자료와 역학 조사 연계로 직업성 폐암 인정.',
-    point: '유족보상연금+장의비 수령. 공소시효 내 신속 처리.',
-  },
-  {
-    category: '출퇴근 재해',
-    title: '자전거 출근 중 교통사고',
-    company: '제조업 / 여성 31세',
+    title: '형틀목공 40년 폐암',
+    company: '건설업 / 남성',
     result: '산재 승인',
-    amount: '1,800만원',
-    desc: '자전거로 통상 경로 출근 중 교차로 교통사고. 골절 3주. 회사에서 자전거 통근 등록 없었으나, 상시 자전거 출근 사실을 GPS 데이터 등으로 입증.',
-    point: '치료비 전액+휴업급여 100% 지급.',
-  },
-  {
-    category: '폐질환',
-    title: '탄광 광부 진폐증',
-    company: '광업 / 남성 67세',
-    result: '산재 승인',
-    amount: '연금 지급',
-    desc: '탄광 40년 근무 후 진폐증 2형 진단. 처음에는 단순 흉부 X-ray만 제출하여 불승인. 고해상도 CT, 직업력 상세 정리, 과거 탄광 기록 수집 후 재신청.',
-    point: '진폐보상연금 + 간병급여 평생 지급.',
+    amount: '병원비 및 장해급여',
+    desc: '40년간 형틀목공 작업 중 결정형 유리규산 노출로 인한 폐암 발병. 건설근로자공제회, 고용보험, 국민연금 등 자료를 활용하여 장기 근무 입증',
+    point: '결정형 유리규산 노출 입증을 통한 직업성 폐암 인정',
   },
   {
     category: '근골격계',
-    title: '간호사 회전근개 파열',
-    company: '의료업 / 여성 46세',
-    result: '산재 승인',
-    amount: '3,400만원',
-    desc: '12년간 병동 간호사. 중환자 이동 보조, 수액 교체 등 반복 상지 작업으로 우측 회전근개 완전 파열. 병원 측 비협조에도 CCTV·업무일지·동료 진술로 입증.',
-    point: '수술·재활 전액 산재. 장해급여 12급 인정.',
-  },
-  {
-    category: '심뇌혈관',
-    title: '편의점 심야 근무자 심근경색',
-    company: '서비스업 / 남성 52세',
-    result: '산재 승인',
-    amount: '5,900만원',
-    desc: '심야 단독 근무 3년, 주당 60시간 이상 근무. 근무 중 흉통 발생 후 심근경색 진단. 교대 근무 불규칙성 및 업무 강도 자료로 과로 입증.',
-    point: '장해급여 7급, 휴업급여 9개월 수령.',
-  },
-  {
-    category: '직업성 암',
-    title: '반도체 공장 방광암',
-    company: '반도체 제조업 / 여성 41세',
-    result: '산재 승인',
-    amount: '6,300만원',
-    desc: '반도체 클린룸 화학물질 노출 9년. 방광암 2기 진단. 노출 화학물질(아민류) 역학 자료 제출, 국제 암연구소(IARC) 분류 자료와 연계하여 산재 인정.',
-    point: '항암·수술비 전액 산재. 장해급여 5급.',
+    title: '건설업 재요양 및 추가상병 승인',
+    company: '건설업 / 남성',
+    result: '재요양 승인',
+    amount: '철심제거술, 인공관절수술 등',
+    desc: '산재 종결 후 재요양 및 추가상병 신청. 철심제거수술, 인공관절수술 등 추가 치료 필요',
+    point: '재요양 및 추가상병 승인으로 추가 수술비 및 휴업급여 수령',
   },
 ];
 ---
@@ -101,23 +83,16 @@ const cases = [
       <p class="mt-3 text-gray-300 max-w-xl">
         실제 사례를 통해 하온 노동법률사무소의 전문성을 확인하세요. 개인정보 보호를 위해 일부 내용은 변경하였습니다.
       </p>
-    </div>
-  </section>
-
-  <!-- Stats -->
-  <section class="bg-navy-800 py-10">
-    <div class="max-w-4xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      {[
-        { n: '2,400+', l: '총 승인 건수' },
-        { n: '98%', l: '승인율' },
-        { n: '15년', l: '전문 경력' },
-        { n: '0원', l: '산재 상담비' },
-      ].map((s) => (
-        <div>
-          <div class="text-3xl font-black text-gold-400">{s.n}</div>
-          <div class="text-sm text-gray-400 mt-1">{s.l}</div>
-        </div>
-      ))}
+      <a href="https://blog.naver.com/jswcpla/224054356423" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-5 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg transition-colors text-sm font-medium">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+        </svg>
+        블로그에서 더 많은 사례 보기
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
     </div>
   </section>
 
@@ -159,9 +134,17 @@ const cases = [
     <div class="max-w-2xl mx-auto px-4">
       <h2 class="text-2xl font-black mb-3">나도 산재 신청이 가능할까요?</h2>
       <p class="text-gray-300 mb-8 text-sm">불승인을 받으셨어도 포기하지 마세요. 함께 다시 검토해드립니다.</p>
-      <a href={url("/consulting")} class="inline-block px-10 py-4 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">
-        무료상담 신청
-      </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={url("/consulting")} class="inline-block px-10 py-4 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">
+          무료상담 신청
+        </a>
+        <a href="https://blog.naver.com/jswcpla/224054356423" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 px-10 py-4 border border-white/30 hover:border-gold-400 text-white hover:text-gold-400 font-bold rounded-xl transition-colors">
+          블로그에서 더 많은 사례 보기
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+      </div>
     </div>
   </section>
 </Layout>
