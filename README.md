@@ -2,7 +2,8 @@
 
 > 산재 전문 공인노무사 — 하늘아래 모든 분들이 온전한 행복을 누릴 수 있도록
 
-**라이브 사이트:** https://jskyu.github.io/Haon_astro/
+**라이브 사이트:** https://haon.pages.dev/ (Cloudflare Pages)  
+**GitHub Pages:** https://jskyu.github.io/Haon_astro/
 
 ---
 
@@ -28,7 +29,7 @@
 |---|---|
 | 프레임워크 | [Astro](https://astro.build/) v4 |
 | 스타일 | [Tailwind CSS](https://tailwindcss.com/) v3 |
-| 배포 | GitHub Pages (정적 빌드) |
+| 배포 | Cloudflare Pages (`cloudflare` 브랜치) / GitHub Pages (`main` 브랜치) |
 
 ---
 
