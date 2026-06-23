@@ -28,36 +28,24 @@ import { url } from '../utils/url';
         <div>
           <h2 class="text-xl font-bold text-navy-900 mb-4">사무소 위치</h2>
 
-          <!-- Naver Map embed -->
-          <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm" id="map-wrapper">
-            <!-- 네이버 지도 API 키 발급 후 아래 스크립트 연동 필요 -->
-            <div id="naver-map" class="w-full h-96 bg-gradient-to-br from-blue-50 to-green-50 flex flex-col items-center justify-center gap-4">
-              <svg class="w-12 h-12 text-green-500" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-              </svg>
-              <div class="text-center">
-                <p class="text-gray-600 font-medium">부산 북구 백양대로 1167-1</p>
-                <p class="text-gray-400 text-sm">2층</p>
-              </div>
-              <a
-                href="https://map.naver.com/p/search/부산 북구 백양대로 1167-1"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium transition-colors text-sm"
-              >
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                네이버 지도에서 보기
-              </a>
-            </div>
+          <!-- Naver Map -->
+          <div class="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+            <div id="naver-map" class="w-full h-96"></div>
           </div>
 
-          <!-- 네이버 지도 JavaScript API 연동 안내 -->
-          <!-- ncpKeyId 발급: https://console.ncloud.com/ -->
-          <p class="text-xs text-gray-400 mt-2 text-center">
-            * 네이버 클라우드 플랫폼 API 키 설정 후 실제 지도로 교체됩니다
-          </p>
+          <div class="mt-4 text-center">
+            <a
+              href="https://map.naver.com/p/search/부산%20북구%20백양대로%201167-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-medium transition-colors text-sm"
+            >
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+              네이버 지도 크게 보기
+            </a>
+          </div>
         </div>
 
         <!-- Info -->
@@ -122,36 +110,105 @@ import { url } from '../utils/url';
   </section>
 </Layout>
 
-<script>
-  // 네이버 지도 JavaScript API 연동 예시
-  // ncpKeyId를 발급받은 후 아래 코드를 활성화하세요.
-  // https://console.ncloud.com/ > AI·NAVER API > Maps > Web Dynamic Map
+<script is:inline>
+  // 네이버 지도 API 로드 및 초기화
+  (function() {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8d533iudy3';
 
-  /*
-  const script = document.createElement('script');
-  script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=YOUR_NCP_KEY_ID';
-  script.onload = () => {
-    const mapEl = document.getElementById('naver-map');
-    if (!mapEl) return;
+    script.onload = function() {
+      // 하온 노동법률사무소 좌표
+      const position = new naver.maps.LatLng(35.2065912, 129.0044803);
 
-    mapEl.innerHTML = '';
-    mapEl.style.height = '384px';
+      // 지도 생성
+      const map = new naver.maps.Map('naver-map', {
+        center: position,
+        zoom: 17,
+        zoomControl: true,
+        zoomControlOptions: {
+          position: naver.maps.Position.TOP_RIGHT
+        },
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          position: naver.maps.Position.TOP_LEFT
+        }
+      });
 
-    const map = new naver.maps.Map('naver-map', {
-      center: new naver.maps.LatLng(37.4985, 127.0278), // 역삼역 인근
-      zoom: 16,
-    });
+      // 마커 생성
+      const marker = new naver.maps.Marker({
+        position: position,
+        map: map,
+        title: '하온 노동법률사무소',
+        icon: {
+          content: '<div style="background-color:#1e3a8a;color:white;padding:8px 12px;border-radius:20px;font-weight:bold;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,0.3);white-space:nowrap;">하온 노동법률사무소</div>',
+          anchor: new naver.maps.Point(60, 40)
+        }
+      });
 
-    const marker = new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.4985, 127.0278),
-      map,
-    });
+      // 정보창 내용
+      const infoWindowContent = `
+        <div style="padding:15px;min-width:250px;line-height:1.6;">
+          <h3 style="margin:0 0 10px 0;font-size:16px;font-weight:bold;color:#1e3a8a;">하온 노동법률사무소</h3>
+          <p style="margin:5px 0;font-size:13px;color:#666;">
+            <strong>주소:</strong> 부산 북구 백양대로 1167-1, 2층
+          </p>
+          <p style="margin:5px 0;font-size:13px;color:#666;">
+            <strong>전화:</strong> <a href="tel:050713281579" style="color:#2563eb;text-decoration:none;">0507-1328-1579</a>
+          </p>
+          <p style="margin:5px 0;font-size:13px;color:#666;">
+            <strong>운영:</strong> 평일 09:00 – 18:00
+          </p>
+          <div style="margin-top:12px;padding-top:12px;border-top:1px solid #eee;">
+            <a href="https://map.naver.com/p/search/부산%20북구%20백양대로%201167-1" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#22c55e;color:white;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:12px;font-weight:bold;">
+              길찾기
+            </a>
+          </div>
+        </div>
+      `;
 
-    const infoWindow = new naver.maps.InfoWindow({
-      content: '<div style="padding:10px;font-size:13px;font-weight:bold;">하온 노동법률사무소</div>',
-    });
-    infoWindow.open(map, marker);
-  };
-  document.head.appendChild(script);
-  */
+      // 정보창 생성
+      const infoWindow = new naver.maps.InfoWindow({
+        content: infoWindowContent,
+        borderWidth: 0,
+        backgroundColor: 'transparent',
+        disableAnchor: false,
+        pixelOffset: new naver.maps.Point(0, -10)
+      });
+
+      // 정보창 열기
+      infoWindow.open(map, marker);
+
+      // 마커 클릭 시 정보창 토글
+      naver.maps.Event.addListener(marker, 'click', function() {
+        if (infoWindow.getMap()) {
+          infoWindow.close();
+        } else {
+          infoWindow.open(map, marker);
+        }
+      });
+    };
+
+    script.onerror = function() {
+      console.error('네이버 지도 API 로드 실패');
+      const mapEl = document.getElementById('naver-map');
+      if (mapEl) {
+        mapEl.innerHTML = `
+          <div class="flex items-center justify-center h-full bg-gray-100">
+            <div class="text-center p-6">
+              <p class="text-gray-600 mb-4">지도를 불러올 수 없습니다.</p>
+              <a href="https://map.naver.com/p/search/부산%20북구%20백양대로%201167-1"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 class="inline-block bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600">
+                네이버 지도에서 보기
+              </a>
+            </div>
+          </div>
+        `;
+      }
+    };
+
+    document.head.appendChild(script);
+  })();
 </script>
