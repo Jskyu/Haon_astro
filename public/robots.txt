@@ -1,27 +1,41 @@
 # 하온 노동법률사무소 robots.txt
 
-# 모든 검색 엔진 허용
-User-agent: *
-Allow: /
-
-# 크롤링 제외할 디렉토리
-Disallow: /temp/
-Disallow: /_astro/
-
-# 크롤링 속도 제한 (1초당 1개 요청)
-Crawl-delay: 1
-
-# Sitemap 위치
-Sitemap: https://haon.pages.dev/sitemap.xml
-
-# 네이버 검색로봇
-User-agent: Yeti
-Allow: /
+# ========================================
+# 주요 검색 엔진 (빠른 크롤링 허용)
+# ========================================
 
 # 구글 검색로봇
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 2
+
+# 네이버 검색로봇
+User-agent: Yeti
+Allow: /
+Crawl-delay: 2
+
+# 다음 검색로봇
+User-agent: Daumoa
+Allow: /
+Crawl-delay: 2
 
 # 빙 검색로봇
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 5
+
+# ========================================
+# 기타 모든 봇 (느린 크롤링)
+# ========================================
+
+User-agent: *
+Allow: /
+Disallow: /temp/
+Disallow: /_astro/
+Crawl-delay: 10
+
+# ========================================
+# Sitemap
+# ========================================
+
+Sitemap: https://산재전문.com/sitemap.xml

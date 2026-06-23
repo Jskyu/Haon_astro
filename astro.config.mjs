@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 const isCloudflare = process.env.CF_PAGES === '1';
 
 export default defineConfig({
-  site: 'https://haon.pages.dev',
+  site: 'https://산재전문.com',
   base: '/',
   integrations: [tailwind()],
 });
