@@ -14,7 +14,7 @@ const cases = [
   },
   {
     category: '뇌심혈관',
-    title: '화물차 기사 급성심근경색',
+    title: '화물차주 급성심근경색',
     company: '운송업 / 남성',
     result: '유족급여 인정',
     amount: '총 114,648,590원 + 매 월 연금 수령',
@@ -26,18 +26,18 @@ const cases = [
     title: '자동차 공업사 근로자 폐암',
     company: '자동차 정비업 / 남성',
     result: '산재 승인',
-    amount: '61,590,320원 등',
+    amount: '81,430,670원 등',
     desc: '업무 내용·근무환경 정리, 직업환경연구원 자료 및 산업안전보건공단 자료 등 제출하여 업무 중 발암물질 노출 입증을 통해 폐암 승인',
-    point: '병원비·휴업급여 61,590,320원 등 수령',
+    point: '병원비·휴업급여 81,430,670원 등 수령',
   },
   {
     category: '근골격계',
-    title: '건설 근로자 어깨 회전근개 파열',
-    company: '건설업 / 남성',
+    title: '도축업 근로자 어깨 회전근개 파열',
+    company: '도축업 / 남성',
     result: '산재 승인',
     amount: '95,447,910원',
-    desc: '장기간 건설 현장 근무로 인한 어깨 회전근개 파열. 수술 및 재활치료 진행',
-    point: '수술비 전액 산재 처리, 장해급여 95,447,910원 수령',
+    desc: '어깨 부담이 극심한 장기간 도축 업무를 수행하면서 누적된 피로를 업무상 질병으로 인정.',
+    point: '병원비, 수술비, 휴업급여, 장해급여 등 95,447,910원 수령',
   },
   {
     category: '소음성 난청',
@@ -45,26 +45,17 @@ const cases = [
     company: '중공업 / 남성',
     result: '산재 승인',
     amount: '69,101,200원',
-    desc: '30년 이상 그라인더 사상 작업으로 인한 소음성 난청. 장기간 85dB 이상 소음 노출 환경에서 근무',
+    desc: '10년 이상 그라인더 사상 작업으로 인한 소음성 난청 주장. 70세 정도임에도 노인성이 아닌 산재로 인정.',
     point: '장해급여 69,101,200원 수령',
   },
   {
-    category: '직업성 암',
-    title: '형틀목공 40년 폐암',
-    company: '건설업 / 남성',
-    result: '산재 승인',
-    amount: '병원비 및 장해급여',
-    desc: '40년간 형틀목공 작업 중 결정형 유리규산 노출로 인한 폐암 발병. 건설근로자공제회, 고용보험, 국민연금 등 자료를 활용하여 장기 근무 입증',
-    point: '결정형 유리규산 노출 입증을 통한 직업성 폐암 인정',
-  },
-  {
     category: '근골격계',
-    title: '건설업 재요양 및 추가상병 승인',
-    company: '건설업 / 남성',
-    result: '재요양 승인',
-    amount: '철심제거술, 인공관절수술 등',
-    desc: '산재 종결 후 재요양 및 추가상병 신청. 철심제거수술, 인공관절수술 등 추가 치료 필요',
-    point: '재요양 및 추가상병 승인으로 추가 수술비 및 휴업급여 수령',
+    title: '제조업 무릎 관절증',
+    company: '제조업 / 남성',
+    result: '산재 승인',
+    amount: '장해급여 등 지급',
+    desc: '부산, 함안, 김해 등 여러 제조업 공장에서 장기간 제관 업무 수행. 일부 사업장이 4대보험 미가입 상태였으나, 각종 자료를 수집하여 근무사실을 입증하고 산재 승인.',
+    point: '4대보험 미가입 사업장 근무이력 입증 및 산재 승인',
   },
 ];
 ---
@@ -108,11 +99,11 @@ const cases = [
             <div class="p-6 flex flex-col flex-1">
               <h3 class="font-bold text-navy-900 text-base mb-1">{c.title}</h3>
               <p class="text-xs text-gray-400 mb-4">{c.company}</p>
-              <p class="text-sm text-gray-600 leading-relaxed mb-4">{c.desc}</p>
-              <div class="bg-stone-50 rounded-xl p-3.5 mb-4">
+              <p class="text-sm text-gray-600 leading-relaxed mb-4 flex-1">{c.desc}</p>
+              <div class="bg-stone-50 rounded-xl p-3.5 mb-3">
                 <p class="text-xs text-stone-600 font-medium whitespace-pre-line">{c.point}</p>
               </div>
-              <div class="flex items-center justify-between pt-3 border-t border-gray-100 mt-auto">
+              <div class="flex items-center justify-between pt-3 border-t border-gray-100">
                 <span class="text-xs text-gray-400">수령 금액</span>
                 <span class="text-base font-black text-gold-600">{c.amount}</span>
               </div>
