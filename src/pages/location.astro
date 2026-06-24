@@ -115,8 +115,7 @@ import { url } from '../utils/url';
   (function() {
     const script = document.createElement('script');
     script.type = 'text/javascript';
-    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=8d533iudy3&v=' + Date.now();
-
+    script.src = 'https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=8d533iudy3';
     script.onload = function() {
       // 하온 노동법률사무소 좌표
       const position = new naver.maps.LatLng(35.2065912, 129.0044803);
