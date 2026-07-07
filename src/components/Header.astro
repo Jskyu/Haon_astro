@@ -19,10 +19,10 @@ const active = (path: string) => {
 const guidesActive = guides.some(g => pathname === g.href || pathname === g.href + '/');
 ---
 
-<header class="bg-navy-900 text-white shadow-lg sticky top-0 z-50">
+<header class="bg-white text-gray-900 shadow-sm sticky top-0 z-50 border-b border-gray-200">
   <!-- Top bar -->
-  <div class="bg-navy-950 text-sm py-1.5 hidden md:block">
-    <div class="max-w-6xl mx-auto px-4 flex justify-end gap-6 text-gray-300">
+  <div class="bg-gray-50 text-sm py-1.5 hidden md:block">
+    <div class="max-w-6xl mx-auto px-4 flex justify-end gap-6 text-gray-600">
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -55,19 +55,19 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
         <img src={`${base}/logo.svg`} alt="하온 로고" class="w-12 h-12 group-hover:opacity-90 transition-opacity" />
         <div class="leading-tight">
           <div class="font-bold text-lg tracking-tight">하온 노동법률사무소</div>
-          <div class="text-xs text-gold-400 tracking-wider">HAON LABOR LAW OFFICE</div>
+          <div class="text-xs text-blue-600 tracking-wider">HAON LABOR LAW OFFICE</div>
         </div>
       </a>
 
       <!-- Desktop nav -->
       <nav class="hidden lg:flex items-center gap-1">
-        <a href={url('/')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/') ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors ${active('/') ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
           홈
         </a>
-        <a href={url('/company-overview')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/company-overview') ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/company-overview')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors ${active('/company-overview') ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
           대표 인사말
         </a>
-        <a href={url('/specialty')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/specialty') ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/specialty')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors ${active('/specialty') ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
           전문 분야
         </a>
 
@@ -97,19 +97,19 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
           </div>
         </div> -->
 
-        <a href={url('/cases')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/cases') ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/cases')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors ${active('/cases') ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
           성공사례
         </a>
-        <a href={url('/location')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-white/10 transition-colors ${active('/location') ? 'text-gold-400' : 'text-gray-200'}`}>
+        <a href={url('/location')} class={`px-3 py-2 rounded-md text-sm font-medium hover:bg-blue-50 transition-colors ${active('/location') ? 'text-blue-600 font-semibold' : 'text-gray-700'}`}>
           오시는 길
         </a>
-        <a href={url('/consulting')} class="ml-2 px-5 py-2 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold text-sm rounded-lg transition-colors whitespace-nowrap">
+        <a href={url('/consulting')} class="ml-2 px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg transition-colors whitespace-nowrap">
           무료상담
         </a>
       </nav>
 
       <!-- Mobile hamburger -->
-      <button id="hamburger" class="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors" aria-label="메뉴 열기">
+      <button id="hamburger" class="lg:hidden p-2 rounded-md hover:bg-blue-50 transition-colors" aria-label="메뉴 열기">
         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
@@ -121,11 +121,11 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-navy-800 border-t border-white/10">
+  <div id="mobile-menu" class="hidden lg:hidden bg-gray-50 border-t border-gray-200">
     <div class="max-w-6xl mx-auto px-4 py-3 space-y-1">
-      <a href={url('/')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">홈</a>
-      <a href={url('/company-overview')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">대표 인사말</a>
-      <a href={url('/specialty')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">전문 분야</a>
+      <a href={url('/')} class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">홈</a>
+      <a href={url('/company-overview')} class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">대표 인사말</a>
+      <a href={url('/specialty')} class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">전문 분야</a>
       <!-- Mobile Guides - HIDDEN -->
       <!-- <div>
         <button id="mobile-guides-btn" class="w-full flex items-center justify-between px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">
@@ -142,9 +142,9 @@ const guidesActive = guides.some(g => pathname === g.href || pathname === g.href
           ))}
         </div>
       </div> -->
-      <a href={url('/cases')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">성공사례</a>
-      <a href={url('/location')} class="block px-3 py-2.5 text-sm font-medium text-gray-200 hover:bg-white/10 rounded-md">오시는 길</a>
-      <a href={url('/consulting')} class="block mx-3 mt-3 py-3 bg-gold-500 text-navy-900 font-bold text-sm rounded-lg text-center">
+      <a href={url('/cases')} class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">성공사례</a>
+      <a href={url('/location')} class="block px-3 py-2.5 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">오시는 길</a>
+      <a href={url('/consulting')} class="block mx-3 mt-3 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg text-center transition-colors">
         무료상담 신청
       </a>
     </div>

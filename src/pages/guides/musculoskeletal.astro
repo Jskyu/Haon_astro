@@ -5,9 +5,9 @@ import { url } from '../../utils/url';
 
 <Layout title="근골격계 질환 산재 가이드" description="근골격계 질환 산재 신청 방법 - 요추 추간판, 어깨, 손목, 무릎 등 - 하온 노동법률사무소">
 
-  <section class="bg-navy-900 text-white py-16">
+  <section class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
     <div class="max-w-6xl mx-auto px-4">
-      <div class="text-sm text-gold-400 mb-2">
+      <div class="text-sm text-blue-100 mb-2">
         <a href={url("/")} class="hover:underline">홈</a>
         <span class="mx-2">/</span>
         <a href={url("/specialty")} class="hover:underline">전문 분야</a>
@@ -15,7 +15,7 @@ import { url } from '../../utils/url';
         <span>근골격계 질환</span>
       </div>
       <h1 class="text-4xl font-black">근골격계 질환</h1>
-      <p class="mt-3 text-gray-300 max-w-2xl">
+      <p class="mt-3 text-gray-100 max-w-2xl">
         반복 작업, 무거운 중량물 취급, 불편한 자세로 인한 허리·어깨·손목 질환은 산재로 인정받을 수 있습니다.
       </p>
     </div>
@@ -25,20 +25,20 @@ import { url } from '../../utils/url';
     <div class="max-w-4xl mx-auto px-4">
 
       <div class="mb-12">
-        <h2 class="text-2xl font-black text-navy-900 mb-4">근골격계 직업병이란?</h2>
+        <h2 class="text-2xl font-black text-gray-900 mb-4">근골격계 직업병이란?</h2>
         <p class="text-gray-600 leading-loose mb-4">
           근골격계 질환(Musculoskeletal Disorders)은 근육, 뼈, 관절, 인대, 건 등에 발생하는 직업성 질환입니다.
           과도한 힘, 반복적 동작, 부적절한 작업 자세, 진동, 접촉 스트레스가 주요 원인입니다.
         </p>
         <p class="text-gray-600 leading-loose">
-          산재보험법상 <strong class="text-navy-900">업무와 질병 사이의 상당인과관계</strong>가 인정되면 요양급여를 받을 수 있으며,
+          산재보험법상 <strong class="text-gray-900">업무와 질병 사이의 상당인과관계</strong>가 인정되면 요양급여를 받을 수 있으며,
           단순 업무상 사고와 달리 직업성 질환으로 처리됩니다.
         </p>
       </div>
 
       <!-- Disease types -->
       <div class="mb-12">
-        <h2 class="text-2xl font-black text-navy-900 mb-6">주요 질환 유형</h2>
+        <h2 class="text-2xl font-black text-gray-900 mb-6">주요 질환 유형</h2>
         <div class="grid sm:grid-cols-2 gap-4">
           {[
             { title: '요추 추간판 탈출증 (허리디스크)', desc: '중량물 취급, 반복 허리 굴곡 작업. 요추 4-5번, 5번-천추 1번 호발', tags: ['택배', '간호사', '건설업'] },
@@ -49,7 +49,7 @@ import { url } from '../../utils/url';
             { title: '건염·건초염', desc: '반복적인 손·손목 사용으로 인한 건 염증', tags: ['식품 가공', '조립 작업', '포장'] },
           ].map((d) => (
             <div class="bg-gray-50 rounded-2xl p-5">
-              <h3 class="font-bold text-navy-900 mb-2 text-sm">{d.title}</h3>
+              <h3 class="font-bold text-gray-900 mb-2 text-sm">{d.title}</h3>
               <p class="text-sm text-gray-600 mb-3">{d.desc}</p>
               <div class="flex flex-wrap gap-1.5">
                 {d.tags.map((tag) => (
@@ -63,7 +63,7 @@ import { url } from '../../utils/url';
 
       <!-- Recognition criteria -->
       <div class="mb-12">
-        <h2 class="text-2xl font-black text-navy-900 mb-6">산재 인정 핵심 요건</h2>
+        <h2 class="text-2xl font-black text-gray-900 mb-6">산재 인정 핵심 요건</h2>
         <div class="space-y-4">
           {[
             {
@@ -82,7 +82,7 @@ import { url } from '../../utils/url';
             <div class="flex gap-4 p-5 border border-gray-100 rounded-xl">
               <div class="w-2 bg-blue-500 rounded-full shrink-0"></div>
               <div>
-                <h3 class="font-bold text-navy-900 mb-1">{item.title}</h3>
+                <h3 class="font-bold text-gray-900 mb-1">{item.title}</h3>
                 <p class="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
               </div>
             </div>
@@ -123,12 +123,12 @@ import { url } from '../../utils/url';
         </div>
       </div>
 
-      <div class="bg-navy-900 rounded-2xl p-8 text-center text-white">
-        <h2 class="text-2xl font-black mb-3">근골격계 질환 무료 상담</h2>
-        <p class="text-gray-300 text-sm mb-6">직종, 작업 내용, 질환명을 말씀해 주시면 산재 가능성을 바로 검토해 드립니다.</p>
+      <div class="bg-white border-2 border-gray-200 shadow-sm rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-black mb-3 text-gray-900">근골격계 질환 무료 상담</h2>
+        <p class="text-gray-600 text-sm mb-6">직종, 작업 내용, 질환명을 말씀해 주시면 산재 가능성을 바로 검토해 드립니다.</p>
         <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href={url("/consulting")} class="px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-colors">온라인 상담 신청</a>
-          <a href="tel:050713281579" class="px-8 py-3.5 border border-white/30 hover:bg-white/10 font-semibold rounded-xl transition-colors">0507-1328-1579</a>
+          <a href={url("/consulting")} class="px-8 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors">온라인 상담 신청</a>
+          <a href="tel:050713281579" class="px-8 py-3.5 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold rounded-xl transition-colors">0507-1328-1579</a>
         </div>
       </div>
     </div>
