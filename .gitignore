@@ -17,3 +17,7 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# Work logs
+temp/
+.work-logs/
