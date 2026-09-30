@@ -1,4 +1,4 @@
-﻿---
+---
 import Layout from '../layouts/Layout.astro';
 import { url } from '../utils/url';
 
@@ -18,9 +18,9 @@ const emailJsConfig = {
 ---
 
 <Layout
-  title="무료상담"
-  description="하온 노동법률사무소 무료 산재 상담 신청 - 소음성 난청, 근골격계, 심뇌혈관, 직업성 암 등 전문 상담"
-  keywords="산재무료상담, 산재신청상담, 노무사상담, 산재가능성, 산재승인, 부산산재상담"
+  title="사업주 상담 신청"
+  description="하온 노동법률사무소 사업주 상담 - 4대보험, 급여대행, 노동법률 자문, 노동사건 대응, 고용지원금"
+  keywords="사업주상담, 인사노무, 4대보험, 급여대행, 노동법률자문, 부산노무사"
 >
 
   <section class="bg-navy-900 text-white py-16">
@@ -28,11 +28,11 @@ const emailJsConfig = {
       <div class="text-sm text-gold-400 mb-2">
         <a href={url("/")} class="hover:underline">홈</a>
         <span class="mx-2">/</span>
-        <span>무료상담</span>
+        <span>사업주 상담 신청</span>
       </div>
-      <h1 class="text-4xl font-black">무료상담 신청</h1>
+      <h1 class="text-4xl font-black">사업주 상담 신청</h1>
       <p class="mt-3 text-gray-300 max-w-xl">
-        상담 후 산재 가능성이 없다고 판단되는 경우 어떠한 비용도 청구하지 않습니다.
+        기업 성장을 위한 전문적인 인사노무 관리 서비스를 상담받으세요.
       </p>
     </div>
   </section>
@@ -48,11 +48,24 @@ const emailJsConfig = {
             <p class="text-sm text-gray-500 mb-8">모든 항목을 입력해 주시면 더 정확한 상담이 가능합니다. <span class="text-red-500">*</span> 표시는 필수 항목입니다.</p>
 
             <form id="consulting-form" class="space-y-6" novalidate>
-              <!-- Name + Phone -->
+              <!-- Company name + CEO name -->
               <div class="grid sm:grid-cols-2 gap-5">
                 <div>
+                  <label for="company" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                    회사명 <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    placeholder="(주)하온건설"
+                    required
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
                   <label for="name" class="block text-sm font-semibold text-gray-700 mb-1.5">
-                    성함 <span class="text-red-500">*</span>
+                    담당자 성함 <span class="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -60,9 +73,13 @@ const emailJsConfig = {
                     name="name"
                     placeholder="홍길동"
                     required
-                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
                   />
                 </div>
+              </div>
+
+              <!-- Phone + Email -->
+              <div class="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1.5">
                     연락처 <span class="text-red-500">*</span>
@@ -73,35 +90,57 @@ const emailJsConfig = {
                     name="phone"
                     placeholder="010-0000-0000"
                     required
-                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-gray-700 mb-1.5">이메일</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@email.com"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
                   />
                 </div>
               </div>
 
-              <!-- Email -->
-              <div>
-                <label for="email" class="block text-sm font-semibold text-gray-700 mb-1.5">이메일</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="example@email.com"
-                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                />
+              <!-- Region + Employee count -->
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="region" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                    소재지 <span class="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="region"
+                    name="region"
+                    placeholder="예: 부산 해운대구"
+                    required
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
+                  />
+                </div>
+                <div>
+                  <label for="employeeCount" class="block text-sm font-semibold text-gray-700 mb-1.5">직원 수</label>
+                  <input
+                    type="text"
+                    id="employeeCount"
+                    name="employeeCount"
+                    placeholder="예: 15명"
+                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
+                  />
+                </div>
               </div>
 
-              <!-- Region -->
+              <!-- Industry -->
               <div>
-                <label for="region" class="block text-sm font-semibold text-gray-700 mb-1.5">
-                  지역 <span class="text-red-500">*</span>
-                </label>
+                <label for="industry" class="block text-sm font-semibold text-gray-700 mb-1.5">업종</label>
                 <input
                   type="text"
-                  id="region"
-                  name="region"
-                  placeholder="예: 부산 북구 또는 경상남도 거제"
-                  required
-                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                  id="industry"
+                  name="industry"
+                  placeholder="예: 건설업, 제조업, 서비스업 등"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
                 />
               </div>
 
@@ -114,71 +153,38 @@ const emailJsConfig = {
                   id="type"
                   name="type"
                   required
-                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white appearance-none"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition bg-white appearance-none"
                 >
                   <option value="">— 해당 분야를 선택해 주세요 —</option>
-                  <option value="소음성 난청">소음성 난청</option>
-                  <option value="근골격계 질병 (무릎, 어깨, 허리 등)">근골격계 질병 (무릎, 어깨, 허리 등)</option>
-                  <option value="뇌심혈관 질병 (뇌출혈, 심근경색 등)">뇌심혈관 질병 (뇌출혈, 심근경색 등)</option>
-                  <option value="폐질환 (천식, 진폐, COPD, 석면폐증 등)">폐질환 (천식, 진폐, COPD, 석면폐증 등)</option>
-                  <option value="직업성 암">직업성 암</option>
-                  <option value="유족보상">유족보상</option>
-                  <option value="출퇴근 재해">출퇴근 재해</option>
-                  <option value="산재 불승인 이의신청">산재 불승인 이의신청</option>
-                  <option value="평균임금 정정">평균임금 정정</option>
+                  <option value="4대보험">4대보험 가입 및 관리</option>
+                  <option value="급여대행">급여 계산 및 대행</option>
+                  <option value="노동법률 자문">노동법률 자문 (취업규칙, 근로계약 등)</option>
+                  <option value="노동사건 대응">노동사건 대응 (노동위원회, 법원)</option>
+                  <option value="고용지원금">고용지원금 신청</option>
+                  <option value="산재 대응">산재 사고 대응</option>
+                  <option value="근로감독 대응">근로감독 대응</option>
                   <option value="기타">기타</option>
                 </select>
-              </div>
-
-              <!-- Work type -->
-              <div class="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="industry" class="block text-sm font-semibold text-gray-700 mb-1.5">업종</label>
-                  <input
-                    type="text"
-                    id="industry"
-                    name="industry"
-                    placeholder="예: 건설업, 제조업, 사무직"
-                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  />
-                </div>
-                <div>
-                  <label for="workYears" class="block text-sm font-semibold text-gray-700 mb-1.5">근무 기간</label>
-                  <input
-                    type="text"
-                    id="workYears"
-                    name="workYears"
-                    placeholder="예: 10년 3개월"
-                    class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
-                  />
-                </div>
-              </div>
-
-              <!-- Status -->
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-3">현재 상태</label>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {['산재 신청 전', '신청 심사 중', '불승인 받음', '기타'].map((s) => (
-                    <label class="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-colors">
-                      <input type="radio" name="status" value={s} class="accent-blue-600" />
-                      <span class="text-sm text-gray-600">{s}</span>
-                    </label>
-                  ))}
-                </div>
               </div>
 
               <!-- Message -->
               <div>
                 <label for="message" class="block text-sm font-semibold text-gray-700 mb-1.5">
-                  상황 설명 <span class="text-red-500">*</span>
+                  상담 내용 <span class="text-red-500">*</span>
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows="5"
+                  rows="6"
                   required
-                  placeholder="다치거나 질병이 발생한 경위, 증상, 현재 상황 등을 자유롭게 작성해 주세요. 구체적일수록 더 정확한 상담이 가능합니다."
-                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
+                  placeholder="상담받고 싶은 내용을 자유롭게 작성해 주세요.
+
+예시:
+- 4대보험 신규 가입 및 관리
+- 근로계약서 및 취업규칙 작성
+- 임금체불 진정 사건 대응
+- 고용지원금 신청 지원 등"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition resize-none"
                 ></textarea>
               </div>
 
@@ -188,7 +194,7 @@ const emailJsConfig = {
                 <select
                   id="contactTime"
                   name="contactTime"
-                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white"
+                  class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition bg-white"
                 >
                   <option value="상관없음">상관없음</option>
                   <option value="평일 오전 9시 – 12시">평일 오전 9시 – 12시</option>
@@ -199,10 +205,10 @@ const emailJsConfig = {
 
               <!-- Privacy -->
               <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
-                <input type="checkbox" id="privacy" name="privacy" required class="mt-0.5 accent-blue-600" />
+                <input type="checkbox" id="privacy" name="privacy" required class="mt-0.5 accent-gold-600" />
                 <label for="privacy" class="text-sm text-gray-600 cursor-pointer">
                   <span class="font-semibold text-gray-800">[필수] 개인정보 수집 및 이용에 동의합니다.</span><br />
-                  수집 항목: 성함, 연락처, 이메일 / 목적: 상담 진행 / 보유 기간: 상담 완료 후 1년
+                  수집 항목: 회사명, 담당자 정보, 연락처, 이메일 / 목적: 상담 진행 / 보유 기간: 상담 완료 후 1년
                 </label>
               </div>
 
@@ -214,16 +220,16 @@ const emailJsConfig = {
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
-                무료상담 신청하기
+                상담 신청하기
               </button>
             </form>
 
-            <!-- Error message (hidden by default) -->
+            <!-- Error message -->
             <div id="error-msg" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-sm text-red-700 text-center">
               전송 중 오류가 발생했습니다. 잠시 후 다시 시도하거나 <a href="tel:050713281579" class="font-semibold underline">전화</a>로 문의해 주세요.
             </div>
 
-            <!-- Success message (hidden by default) -->
+            <!-- Success message -->
             <div id="success-msg" class="hidden text-center py-12">
               <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -231,7 +237,7 @@ const emailJsConfig = {
                 </svg>
               </div>
               <h3 class="text-xl font-black text-navy-900 mb-2">상담 신청이 완료되었습니다!</h3>
-              <p class="text-gray-500 text-sm">영업일 기준 24시간 이내에 연락드리겠습니다.<br />급하신 경우 <a href="tel:050713281579" class="text-blue-600 font-semibold hover:underline">0507-1328-1579</a>로 바로 전화해 주세요.</p>
+              <p class="text-gray-500 text-sm">영업일 기준 24시간 이내에 연락드리겠습니다.<br />급하신 경우 <a href="tel:050713281579" class="text-gold-600 font-semibold hover:underline">0507-1328-1579</a>로 바로 전화해 주세요.</p>
             </div>
           </div>
         </div>
@@ -267,42 +273,13 @@ const emailJsConfig = {
             </div>
           </div>
 
-          <!-- FAQ -->
-          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
-            <h3 class="font-bold text-navy-900 mb-5">자주 묻는 질문</h3>
-            <div class="space-y-4" id="faq">
-              {[
-                {
-                  q: '상담 비용이 있나요?',
-                  a: '산재 상담은 무료입니다. 저희는 산재 승인 후 성공보수를 받습니다.',
-                },
-                {
-                  q: '실업급여를 받았어요. 산재도 가능한가요?',
-                  a: '네. 가능합니다. 요양급여, 장해급여 등 받을 수 있는 산재 보상금이 있습니다.',
-                },
-                {
-                  q: '나이가 80세입니다. 산재 신청할 수 있을까요?',
-                  a: '네. 나이가 80세가 넘으셔도 산재 신청이 가능합니다.',
-                },
-                {
-                  q: '10년 전에 퇴직했어요. 산재 신청 가능한가요?',
-                  a: '네. 상병마다 다르지만, 가능할 수 있습니다. 무료 상담을 받아보시길 추천드립니다.',
-                },
-              ].map((faq, i) => (
-                <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
-                  <button
-                    class="w-full flex items-start justify-between text-left gap-2 text-sm font-semibold text-gray-800 faq-btn"
-                    data-index={i}
-                  >
-                    <span>Q. {faq.q}</span>
-                    <svg class="w-4 h-4 text-gray-400 shrink-0 mt-0.5 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </button>
-                  <div class="hidden faq-answer mt-2 text-sm text-gray-500 leading-relaxed">{faq.a}</div>
-                </div>
-              ))}
-            </div>
+          <!-- Info box -->
+          <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6">
+            <h3 class="font-bold text-navy-900 mb-3">투명한 비용 안내</h3>
+            <p class="text-sm text-gray-700 leading-relaxed">
+              상담 후 업무 범위와 비용을 투명하게 안내드립니다.
+              합리적인 가격으로 전문적인 서비스를 제공합니다.
+            </p>
           </div>
         </div>
       </div>
@@ -319,17 +296,6 @@ const emailJsConfig = {
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var answer = btn.nextElementSibling;
-      var icon = btn.querySelector('.faq-icon');
-      answer && answer.classList.toggle('hidden');
-      icon && icon.classList.toggle('rotate-180');
-    });
-  });
-
-  // Form submit
   var form = document.getElementById('consulting-form');
   var successMsg = document.getElementById('success-msg');
   var errorMsg = document.getElementById('error-msg');
@@ -358,7 +324,6 @@ const emailJsConfig = {
       return;
     }
 
-    // 전송 중 버튼 비활성화
     if (submitBtn) {
       submitBtn.disabled = true;
       submitBtn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg> 전송 중...';
