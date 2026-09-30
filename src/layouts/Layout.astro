@@ -4,11 +4,25 @@ import Footer from '../components/Footer.astro';
 import { base } from '../utils/url';
 
 interface Props {
-  title: string;
+  title?: string;
   description?: string;
+  keywords?: string;
+  ogImage?: string;
 }
 
-const { title, description = '하온 노동법률사무소 - 산재 전문 공인 노무사' } = Astro.props;
+const defaultTitle = '하온 노동법률사무소 - 산재 전문 공인 노무사';
+const defaultDescription = '부산 소음성 난청, 근골격계, 심뇌혈관, 직업성 암 등 산재 전문. 성공 보수제, 무료 상담';
+const defaultKeywords = '산재, 산업재해, 소음성난청, 근골격계질병, 심뇌혈관질병, 직업성암, 산재보상, 노무사, 부산노무사, 하온노동법률사무소';
+
+const {
+  title = defaultTitle,
+  description = defaultDescription,
+  keywords = defaultKeywords,
+  ogImage = `${Astro.url.origin}${base}/og-image.jpg`
+} = Astro.props;
+
+const pageTitle = title === defaultTitle ? title : `${title} | 하온 노동법률사무소`;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
 ---
 
 <!doctype html>
@@ -16,16 +30,86 @@ const { title, description = '하온 노동법률사무소 - 산재 전문 공�
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{pageTitle}</title>
+    <meta name="title" content={pageTitle} />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="하온 노동법률사무소" />
     <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="하온 노동법률사무소" />
+    <meta property="og:locale" content="ko_KR" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Additional SEO Tags -->
+    <meta name="geo.region" content="KR-26" />
+    <meta name="geo.placename" content="부산" />
+    <meta name="geo.position" content="35.1796;129.0756" />
+    <meta name="ICBM" content="35.1796, 129.0756" />
+
+    <!-- Naver Site Verification -->
+    <meta name="naver-site-verification" content="0db902281c54d1ec0865c9803d474b7f31b2739a" />
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="04XonUJELe-EPnYSYJMhfnFR2Kzaum4iOoYx3qDZ5DU" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <title>하온 노동법률사무소</title>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href={`${base}/logo.svg`} />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "하온 노동법률사무소",
+        "image": `${Astro.url.origin}${base}/logo.svg`,
+        "url": `${Astro.url.origin}${base}`,
+        "telephone": "+82-507-1328-1579",
+        "email": "jswcpla@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "부산",
+          "addressRegion": "부산광역시",
+          "addressCountry": "KR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 35.1796,
+          "longitude": 129.0756
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "대한민국"
+        },
+        "priceRange": "무료상담",
+        "description": "산재 전문 노동법률사무소. 소음성 난청, 근골격계, 심뇌혈관, 직업성 암 등 산업재해 보상 전문",
+        "knowsAbout": ["산업재해", "산재보상", "소음성난청", "근골격계질병", "심뇌혈관질병", "직업성암"],
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "sameAs": []
+      }
+    </script>
   </head>
   <body class="font-sans antialiased text-gray-800 bg-white">
     <Header />
