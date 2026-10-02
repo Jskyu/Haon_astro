@@ -56,10 +56,10 @@ import { url } from '../utils/url';
 
           <div class="grid grid-cols-2 gap-4">
             {[
-              { title: '4대보험', desc: '가입, 변경, 관리 대행', icon: '📋' },
-              { title: '급여대행', desc: '정확한 급여 계산 및 처리', icon: '💰' },
-              { title: '노동법률 자문', desc: '취업규칙, 근로계약 등', icon: '⚖️' },
-              { title: '노동사건 대응', desc: '노동위원회, 법원 대응', icon: '🛡️' },
+              { title: '4대보험', desc: '취득, 상실, 일용근로 등', icon: '📋' },
+              { title: '급여대행', desc: '주휴, 연장 등 수당 반영', icon: '💰' },
+              { title: '노동법률 자문', desc: '근로계약서, 취업규칙, 노사협의회 등', icon: '⚖️' },
+              { title: '노동사건 대응', desc: '임금체불, 부당해고 등', icon: '🛡️' },
               { title: '고용지원금', desc: '각종 지원금 신청 대행', icon: '💵' },
             ].map((item, i) => (
               <a
@@ -100,9 +100,9 @@ import { url } from '../utils/url';
 
           <div class="grid grid-cols-1 gap-4">
             {[
-              { title: '부당해고', desc: '부당해고 구제신청, 복직 및 보상' },
-              { title: '임금체불·퇴직금', desc: '밀린 임금, 퇴직금 청구 대행' },
-              { title: '대지급금', desc: '임금체불 시 정부 대지급금 신청' },
+              { title: '부당해고', desc: '부당해고등 구제신청, 복직 및 금전보상' },
+              { title: '임금체불·퇴직금', desc: '노동청 임금체불 → 연차, 수당 등 숨은 금액까지' },
+              { title: '대지급금', desc: '체불된 임금과 퇴직금을 국가에 청구' },
               { title: '산업재해', desc: '산재 신청부터 보상금 수령까지' },
             ].map((item, i) => (
               <a
@@ -126,61 +126,6 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- Why us -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <p class="text-gold-600 font-semibold text-sm tracking-widest uppercase mb-2">왜 하온인가</p>
-          <h2 class="text-2xl md:text-4xl font-black text-navy-900 leading-tight mb-10">
-            산재 전문 대표 공인노무사, 전문성으로 결과를 입증합니다
-          </h2>
-          <div class="space-y-8">
-            {[
-              { title: '첫 무료 상담부터 보상까지', desc: '접수부터 보상금 수령까지 대표 공인노무사가 직접 관리합니다.' },
-              { title: '투명한 수임료, 성공보수제', desc: '근로자 분들의 산재 상담은 무료로 진행되며, 산재 승인 이후 성공보수를 받습니다. 근로자분들의 부담을 최소화하며, 자신있게 사건을 진행합니다.' },
-              { title: '불승인에도 포기하지 않습니다', desc: '산재 신청 후 불승인 결정을 받으셨나요? 심사청구, 재심사청구까지 함께 싸웁니다.' },
-              { title: '평균임금 정정', desc: '산재 승인을 받았는데 보상금이 적으신가요? 근로기준법, 평균임금 산정 특례 등 다양한 법령의 전문가로서 도움을 드리겠습니다.' },
-            ].map((item, i) => (
-              <div class="flex gap-6">
-                <span class="text-3xl font-black text-gold-400/40 leading-none shrink-0 select-none">{String(i + 1).padStart(2, '0')}</span>
-                <div>
-                  <h3 class="font-bold text-navy-900 mb-1">{item.title}</h3>
-                  <p class="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          <div class="bg-navy-900 rounded-2xl p-8 text-white">
-            <h3 class="text-lg font-bold mb-8 text-gold-400 tracking-wide">산재 처리 절차</h3>
-            <div class="space-y-0">
-              {[
-                { step: '01', title: '무료 상담', desc: '사고·질병 경위 파악 및 산재 가능성 분석' },
-                { step: '02', title: '쟁점 파악', desc: '의무기록, 4대보험자료, 소득금액증명원 등 자료 수집 및 의학적·법리적 쟁점 파악' },
-                { step: '03', title: '산재 신청', desc: '근로복지공단 관할지사에 요양급여·장해급여 등 청구' },
-                { step: '04', title: '공단 대응', desc: '근로복지공단 조사 대응, 추가 자료 제출' },
-                { step: '05', title: '보상금 수령', desc: '휴업급여, 장해등급 신청 및 평균임금 정정 등 진행' },
-              ].map((step, i, arr) => (
-                <div class="flex gap-5">
-                  <div class="flex flex-col items-center">
-                    <div class="w-9 h-9 border border-gold-500/50 text-gold-400 rounded-full flex items-center justify-center font-bold text-xs shrink-0">{step.step}</div>
-                    {i < arr.length - 1 && <div class="w-px bg-white/10 flex-1 my-2"></div>}
-                  </div>
-                  <div class="pb-6">
-                    <p class="font-bold text-white text-sm">{step.title}</p>
-                    <p class="text-sm text-gray-400 mt-0.5">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Recent cases -->
   <section class="py-20 bg-navy-900">
     <div class="max-w-6xl mx-auto px-4">
@@ -188,17 +133,53 @@ import { url } from '../utils/url';
         <p class="text-gold-400 font-semibold text-sm tracking-widest uppercase mb-2">실제 사례</p>
         <h2 class="text-3xl md:text-4xl font-black text-white">최근 성공 사례</h2>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
-          { badge: '근골격계', title: '건설업 15년 근무 형틀목공', desc: '"나이가 들어서 그렇겠지"라며 주저하셨으나, 의학적·법리적 쟁점 분석 및 인과관계 입증하여 산재 승인', amount: '장해급여 92,927,290원' },
-          { badge: '뇌심혈관', title: '화물차 기사 급성심근경색', desc: '지병(고혈압)이 있으셨으나, 과로와 업무부담 가중요인 주장하여 산재 유족급여 인정', amount: '유족급여+장례비 114,648,590원 + 매 월 연금' },
-          { badge: '직업성 암', title: '자동차 공업사 근로자 폐암', desc: '업무 내용·근무환경 정리, 직업환경연구원 자료 및 산업안전보건공단 자료 등 제출하여 업무 중 발암물질 노출 입증을 통해 폐암 승인', amount: '휴업급여 61,590,320원 등' },
+          {
+            badge: '기업 노동법률 자문',
+            title: '부산 강서구 제조업체',
+            items: [
+              '노동법률 자문',
+              '근로계약서 – 포괄임금, 연장근로수당 등',
+              '취업규칙 – 최신법령 반영, 정년, 연차 등',
+              '노사협의회 – 근로자·사용자위원 선출 등',
+              '직장 내 성희롱 예방·장애인 인식개선 교육'
+            ]
+          },
+          {
+            badge: '기업 노동법률 자문',
+            title: '부산 강서구 서비스업',
+            items: [
+              '노동법률 자문',
+              '근로계약서 –고정OT제 반영 등',
+              '근로계약서 – 정규직·시급제 아르바이트 구분',
+              '급여명세서 – 연장근로수당, 주휴수당 등 반영',
+              '직장 내 성희롱 예방·장애인 인식개선 교육'
+            ]
+          },
+          {
+            badge: '근로자 임금체불',
+            title: '고정OT 근로자의 임금체불',
+            items: [
+              '기본급의 최저임금법 위반 여부 확인',
+              '식대, 통근수당 등의 통상임금성 확인',
+              '연차반영한 미사용 연차수당 확인 <br/>→ 연장·야간·휴일 근로수당 재산정하여 노동청에 임금체불 진정'
+            ]
+          },
         ].map((c) => (
-          <div class="bg-navy-900 p-8">
+          <div class="bg-navy-800/50 p-8 rounded-xl border border-white/10 hover:border-gold-400/50 transition-colors">
             <span class="text-xs font-semibold text-gold-400 tracking-wider uppercase">{c.badge}</span>
-            <h3 class="font-bold text-white text-lg mt-3 mb-3">{c.title}</h3>
-            <p class="text-gray-400 text-sm leading-relaxed mb-6">{c.desc}</p>
-            <p class="text-gold-400 font-bold text-sm border-t border-white/10 pt-4">{c.amount}</p>
+            <h3 class="font-bold text-white text-lg mt-3 mb-6">{c.title}</h3>
+            <ul class="space-y-3">
+              {c.items.map((item) => (
+                <li class="flex items-start gap-2.5 text-gray-300 text-sm leading-relaxed">
+                  <svg class="w-4 h-4 text-gold-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span set:html={item}></span>
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>
