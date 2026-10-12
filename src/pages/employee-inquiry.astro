@@ -40,18 +40,16 @@ import { url } from '../utils/url';
       </div>
 
       <!-- Services Grid -->
-      <div class="grid md:grid-cols-1 gap-8 mb-16">
+      <div class="grid md:grid-cols-2 gap-8 mb-16">
         {[
           {
             title: '부당해고',
             icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/><path fill-rule="evenodd" d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0"/></svg>`,
             subtitle: '정당한 절차 없이 해고당하셨나요?',
             items: [
-              '부당해고 구제신청 대행 (노동위원회)',
-              '해고무효 확인소송 지원',
-              '복직 및 임금 보상 청구',
-              '부당징계 구제신청',
-              '정리해고, 권고사직 법률 검토',
+              '부당해고등 구제신청 대리 (노동위원회)',
+              '복직 및 (임금)금전보상 청구',
+              '정리해고, 권고사직 등 법률 검토',
             ],
           },
           {
@@ -59,10 +57,9 @@ import { url } from '../utils/url';
             icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73z"/></svg>`,
             subtitle: '밀린 임금이나 퇴직금을 받지 못하셨나요?',
             items: [
-              '임금체불 진정·고소 대행',
+              '임금체불 진정·고소 진정',
               '퇴직금 미지급 청구',
               '연장·야간·휴일 수당 청구',
-              '임금채권 확보 및 회수',
             ],
           },
           {
@@ -81,7 +78,7 @@ import { url } from '../utils/url';
             icon: `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/></svg>`,
             subtitle: '업무 중 다치거나 질병이 발생하셨나요?',
             items: [
-              '산재 신청 및 승인 대행',
+              '산재 신청 및 승인이후 관리',
               '소음성 난청, 근골격계 질환 등 업무상 질병 신청',
               '뇌심혈관 질환, 직업성 암 산재 신청',
               '산재 불승인 심사청구·재심사',
@@ -136,7 +133,7 @@ import { url } from '../utils/url';
             {
               step: '04',
               title: '권리 회복',
-              desc: '복직, 보상금 수령',
+              desc: '복직, 체불임금 수령',
             },
           ].map((item, i, arr) => (
             <div class="flex flex-col items-center text-center">
@@ -152,25 +149,6 @@ import { url } from '../utils/url';
               )}
             </div>
           ))}
-        </div>
-      </div>
-
-      <!-- Success Fee Notice -->
-      <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-8">
-        <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center shrink-0">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="font-black text-navy-900 text-xl mb-2">성공보수제 안내</h3>
-            <p class="text-gray-600 leading-relaxed">
-              근로자분들의 산재 상담은 <span class="font-bold text-navy-900">무료</span>로 진행되며,
-              산재 승인 후 성공보수를 받습니다. 부당해고, 임금체불의 경우에도 상담 후
-              투명한 비용을 안내해 드립니다. 근로자분들의 부담을 최소화하며 자신있게 사건을 진행합니다.
-            </p>
-          </div>
         </div>
       </div>
     </div>

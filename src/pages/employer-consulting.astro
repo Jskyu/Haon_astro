@@ -273,13 +273,38 @@ const emailJsConfig = {
             </div>
           </div>
 
-          <!-- Info box -->
-          <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6">
-            <h3 class="font-bold text-navy-900 mb-3">투명한 비용 안내</h3>
-            <p class="text-sm text-gray-700 leading-relaxed">
-              상담 후 업무 범위와 비용을 투명하게 안내드립니다.
-              합리적인 가격으로 전문적인 서비스를 제공합니다.
-            </p>
+          <!-- FAQ -->
+          <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+            <h3 class="font-bold text-navy-900 mb-5">자주 묻는 질문</h3>
+            <div class="space-y-4" id="faq">
+              {[
+                {
+                  q: '상담 비용이 있나요?',
+                  a: '사업주 분 상담은 30분 이내의 경우 55,000원의 상담료를 받습니다.',
+                },
+                {
+                  q: '5인 미만 사업장인데, 근로계약서를 꼭 써야 하나요?',
+                  a: '네. 직원 수와 관계없이 근로계약서를 서면으로 작성하고 교부해야 합니다. 작성하지 않으면 500만원 이하의 벌금에 처할 수 있습니다.',
+                },
+                {
+                  q: '취업규칙은 언제부터 만들어야 하나요?',
+                  a: '10명 이상 사업장이라면 취업규칙을 작성하여 신고해야 합니다. 그렇지 않으면 500만원 이하의 과태료가 부과될 수 있습니다.',
+                },
+              ].map((faq, i) => (
+                <div class="border-b border-gray-100 pb-4 last:border-0 last:pb-0">
+                  <button
+                    class="w-full flex items-start justify-between text-left gap-2 text-sm font-semibold text-gray-800 faq-btn"
+                    data-index={i}
+                  >
+                    <span>Q. {faq.q}</span>
+                    <svg class="w-4 h-4 text-gray-400 shrink-0 mt-0.5 faq-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  <div class="hidden faq-answer mt-2 text-sm text-gray-500 leading-relaxed">{faq.a}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -295,6 +320,16 @@ const emailJsConfig = {
   var EMAILJS_TEMPLATE_ID = emailJsConfig.templateId;
 
   emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var answer = btn.nextElementSibling;
+      var icon = btn.querySelector('.faq-icon');
+      answer && answer.classList.toggle('hidden');
+      icon && icon.classList.toggle('rotate-180');
+    });
+  });
 
   var form = document.getElementById('consulting-form');
   var successMsg = document.getElementById('success-msg');
