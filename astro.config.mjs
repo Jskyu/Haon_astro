@@ -5,7 +5,7 @@ const isCloudflare = process.env.CF_PAGES === '1';
 const isGitHubPages = process.env.GITHUB_ACTIONS === 'true';
 
 export default defineConfig({
-  site: isGitHubPages ? 'https://jskyu.github.io' : 'https://산재전문.com',
+  site: isGitHubPages ? 'https://jskyu.github.io' : 'https://하온.com',
   base: isGitHubPages ? '/Haon_astro' : '/',
   integrations: [tailwind()],
 });
