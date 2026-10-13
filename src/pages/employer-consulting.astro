@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { url } from '../utils/url';
 
-// EmailJS 환경 설정
+// EmailJS 환경 설정 - 사업주용
 const isTestEnv = import.meta.env.PUBLIC_EMAILJS_ENV === 'test';
 const emailJsConfig = {
   publicKey: isTestEnv
@@ -12,8 +12,8 @@ const emailJsConfig = {
     ? import.meta.env.PUBLIC_EMAILJS_TEST_SERVICE_ID
     : import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
   templateId: isTestEnv
-    ? import.meta.env.PUBLIC_EMAILJS_TEST_TEMPLATE_ID
-    : import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID,
+    ? import.meta.env.PUBLIC_EMAILJS_TEST_EMPLOYER_TEMPLATE_ID
+    : import.meta.env.PUBLIC_EMAILJS_EMPLOYER_TEMPLATE_ID,
 };
 ---
 
@@ -58,7 +58,7 @@ const emailJsConfig = {
                     type="text"
                     id="company"
                     name="company"
-                    placeholder="(주)하온건설"
+                    placeholder="예) 하온 노동법률사무소"
                     required
                     class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition"
                   />
