@@ -5,189 +5,132 @@ import { url } from '../utils/url';
 
 <Layout>
 
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-b from-warm-50 via-white to-white text-neutral-900 overflow-hidden">
-    <!-- Subtle decorative elements -->
-    <div class="absolute inset-0 opacity-[0.04]">
-      <div class="absolute top-0 left-0 w-96 h-96 bg-warm-200 rounded-full filter blur-3xl"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-primary-200 rounded-full filter blur-3xl"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 py-24 md:py-32 relative">
-      <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-block mb-6 px-4 py-2 bg-warm-50 border border-warm-200/50 rounded-full">
-          <span class="text-warm-700 font-medium text-sm tracking-wide">믿을 수 있는 노동법률 파트너</span>
-        </div>
-
+  <!-- Hero -->
+  <section class="bg-navy-900 text-white">
+    <div class="max-w-6xl mx-auto px-4 py-24 md:py-36">
+      <div class="max-w-2xl">
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6">
-          <span class="block text-neutral-800"><span class="text-warm-600">하</span>늘아래 모든 분들이</span>
-          <span class="block mt-1 text-neutral-800"><span class="text-warm-600">온</span>전한 행복을 누릴 수 있도록</span>
+          <span class="block lg:whitespace-nowrap"><span class="text-gold-400">하</span>늘아래 모든 분들이</span>
+          <span class="block lg:whitespace-nowrap"><span class="text-gold-400">온</span>전한 행복을 누릴 수 있도록</span>
         </h1>
-
-        <p class="text-lg md:text-xl text-neutral-600 leading-relaxed mb-10 max-w-3xl mx-auto">
-          4대보험·급여대행·노동법률 자문부터<br class="hidden sm:block" />
-          부당해고·임금체불·산업재해까지<br class="hidden sm:block" />
-          <span class="text-warm-700 font-semibold">하온 노동법률사무소</span>가 끝까지 함께합니다
+        <p class="text-lg text-gray-300 leading-relaxed mb-10 max-w-xl">
+          4대보험·급여대행·노동법률 자문부터 부당해고·임금체불·산업재해 등<br class="sm:hidden" />
+          하온 노동법률센터가 끝까지 함께합니다.
         </p>
+        <div class="flex flex-col sm:flex-row gap-4">
 
-        <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <a href="tel:050713281579"
-             class="inline-flex items-center gap-3 px-8 py-3.5 bg-warm-500 hover:bg-warm-600 text-white font-semibold text-base rounded-xl shadow-medium hover:shadow-hard transition-all duration-300">
+          <a href="tel:050713281579" class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/30 hover:bg-white/10 text-white font-semibold text-base rounded-xl transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
             </svg>
-            <span>0507-1328-1579</span>
-          </a>
-
-          <a href={url('/employee-consulting')}
-             class="inline-flex items-center gap-2 px-8 py-3.5 bg-white hover:bg-neutral-50 border border-neutral-200 text-neutral-700 font-semibold text-base rounded-xl shadow-soft hover:shadow-medium transition-all duration-300">
-            <span>무료 상담 신청</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
+            0507-1328-1579
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="py-20 bg-white relative">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center mb-14">
-        <div class="inline-block px-4 py-1.5 bg-neutral-50 rounded-full mb-3">
-          <span class="text-neutral-600 font-medium text-sm tracking-wide uppercase">Our Services</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-black text-neutral-900 mb-3">전문 서비스</h2>
-        <p class="text-neutral-600 text-base max-w-2xl mx-auto">
-          사업주와 근로자 모두를 위한 맞춤형 노동법률 서비스를 제공합니다
-        </p>
-      </div>
-
-      <div class="grid lg:grid-cols-2 gap-6">
+  <!-- Services -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8">
         <!-- 사업주 상담 -->
-        <a href={url('/employer-consulting')}
-           class="group block bg-gradient-to-br from-warm-50/50 to-white hover:from-warm-50 hover:to-warm-100/30 p-8 rounded-2xl border border-warm-100/50 hover:border-warm-200 shadow-soft hover:shadow-medium transition-all duration-300">
-          <div class="flex items-start justify-between mb-5">
-            <div>
-              <div class="inline-block px-3 py-1 bg-warm-100/70 rounded-lg mb-2">
-                <span class="text-warm-800 text-xs font-semibold">For Employers</span>
+        <div class="space-y-4">
+          <a
+            href={url('/employer-consulting')}
+            class="block bg-gradient-to-br from-gold-400 to-gold-500 p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 group overflow-hidden relative"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-gold-300 to-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-3">
+                <h2 class="text-3xl font-black text-navy-900 group-hover:translate-x-1 transition-transform duration-300">사업주 상담</h2>
+                <svg class="w-8 h-8 text-navy-900 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </div>
-              <h3 class="text-3xl font-black text-neutral-900">
-                사업주 상담
-              </h3>
+              <p class="text-navy-800">기업 성장을 위한 인사노무 전문 서비스</p>
             </div>
-            <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-soft group-hover:shadow-medium transition-all duration-300">
-              <svg class="w-7 h-7 text-warm-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-          </div>
+          </a>
 
-          <p class="text-neutral-600 mb-6 text-base leading-relaxed">
-            기업 성장을 위한 전문적인 인사노무 관리 서비스
-          </p>
-
-          <div class="grid grid-cols-2 gap-3">
+          <div class="grid grid-cols-2 gap-4">
             {[
-              { title: '4대보험', desc: '취득·상실·일용근로 등' },
-              { title: '급여대행', desc: '주휴·연장 등 수당 반영' },
-              { title: '노동법률 자문', desc: '근로계약서·취업규칙 등' },
-              { title: '노동사건 대응', desc: '임금체불·부당해고 등' },
-              { title: '고용지원금', desc: '각종 지원금 신청 대행' },
+              { title: '4대보험', desc: '취득, 상실, 일용근로 등', icon: '📋' },
+              { title: '급여대행', desc: '주휴, 연장 등 수당 반영', icon: '💰' },
+              { title: '노동법률 자문', desc: '근로계약서, 취업규칙, 노사협의회 등', icon: '⚖️' },
+              { title: '노동사건 대응', desc: '임금체불, 부당해고 등', icon: '🛡️' },
+              { title: '고용지원금', desc: '각종 지원금 신청 대행', icon: '💵' },
             ].map((item, i) => (
-              <div class={`bg-white/80 p-4 rounded-xl border border-warm-100/50 group-hover:border-warm-200/70 transition-all duration-300 ${i === 4 ? 'col-span-2' : ''}`}>
-                <div class="flex items-start gap-2.5">
-                  <div class="w-1.5 h-1.5 rounded-full bg-warm-500 shrink-0 mt-1.5"></div>
+              <a
+                href={url('/employer-consulting')}
+                class={`bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-gold-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group ${i === 4 ? 'col-span-2' : ''}`}
+              >
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-gold-100 group-hover:bg-gold-400 flex items-center justify-center shrink-0 transition-all duration-300">
+                    <span class="text-sm font-bold text-gold-600 group-hover:text-white transition-colors duration-300">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
                   <div class="flex-1">
-                    <h4 class="font-bold text-neutral-900 text-sm mb-0.5">{item.title}</h4>
-                    <p class="text-xs text-neutral-600 leading-relaxed">{item.desc}</p>
+                    <h3 class="font-bold text-navy-900 mb-1.5 group-hover:text-gold-600 transition-colors duration-300">{item.title}</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
-
-          <div class="mt-6 flex items-center text-warm-700 font-semibold text-sm">
-            <span>자세히 보기</span>
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-        </a>
+        </div>
 
         <!-- 근로자 상담 -->
-        <a href={url('/employee-consulting')}
-           class="group block bg-gradient-to-br from-primary-50/50 to-white hover:from-primary-50 hover:to-primary-100/30 p-8 rounded-2xl border border-primary-100/50 hover:border-primary-200 shadow-soft hover:shadow-medium transition-all duration-300">
-          <div class="flex items-start justify-between mb-5">
-            <div>
-              <div class="inline-block px-3 py-1 bg-primary-100/70 rounded-lg mb-2">
-                <span class="text-primary-800 text-xs font-semibold">For Employees</span>
+        <div class="space-y-4">
+          <a
+            href={url('/employee-consulting')}
+            class="block bg-gradient-to-br from-gold-400 to-gold-500 p-8 rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 group overflow-hidden relative"
+          >
+            <div class="absolute inset-0 bg-gradient-to-br from-gold-300 to-gold-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-3">
+                <h2 class="text-3xl font-black text-navy-900 group-hover:translate-x-1 transition-transform duration-300">근로자 상담</h2>
+                <svg class="w-8 h-8 text-navy-900 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
               </div>
-              <h3 class="text-3xl font-black text-neutral-900">
-                근로자 상담
-              </h3>
+              <p class="text-navy-800">부당한 대우로부터 권리를 보호합니다</p>
             </div>
-            <div class="w-14 h-14 bg-white rounded-xl flex items-center justify-center shadow-soft group-hover:shadow-medium transition-all duration-300">
-              <svg class="w-7 h-7 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-              </svg>
-            </div>
-          </div>
+          </a>
 
-          <p class="text-neutral-600 mb-6 text-base leading-relaxed">
-            부당한 대우로부터 여러분의 권리를 보호합니다
-          </p>
-
-          <div class="space-y-3">
+          <div class="grid grid-cols-1 gap-4">
             {[
               { title: '부당해고', desc: '부당해고등 구제신청, 복직 및 금전보상' },
-              { title: '임금체불·퇴직금', desc: '노동청 임금체불 → 연차·수당 등 숨은 금액까지' },
+              { title: '임금체불·퇴직금', desc: '노동청 임금체불 → 연차, 수당 등 숨은 금액까지' },
               { title: '대지급금', desc: '체불된 임금과 퇴직금을 국가에 청구' },
-              { title: '산업재해', desc: '산재 신청부터 보상금 수령까지 전 과정 지원' },
-            ].map((item) => (
-              <div class="bg-white/80 p-4 rounded-xl border border-primary-100/50 group-hover:border-primary-200/70 transition-all duration-300">
-                <div class="flex items-start gap-2.5">
-                  <div class="w-1.5 h-1.5 rounded-full bg-primary-600 shrink-0 mt-1.5"></div>
+              { title: '산업재해', desc: '산재 신청부터 보상금 수령까지' },
+            ].map((item, i) => (
+              <a
+                href={url('/employee-consulting')}
+                class="bg-white p-6 rounded-xl border-2 border-gray-100 hover:border-gold-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
+              >
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 rounded-lg bg-gold-100 group-hover:bg-gold-400 flex items-center justify-center shrink-0 transition-all duration-300">
+                    <span class="text-sm font-bold text-gold-600 group-hover:text-white transition-colors duration-300">{String(i + 1).padStart(2, '0')}</span>
+                  </div>
                   <div class="flex-1">
-                    <h4 class="font-bold text-neutral-900 text-sm mb-0.5">{item.title}</h4>
-                    <p class="text-xs text-neutral-600 leading-relaxed">{item.desc}</p>
+                    <h3 class="font-bold text-navy-900 mb-1.5 group-hover:text-gold-600 transition-colors duration-300">{item.title}</h3>
+                    <p class="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
-
-          <div class="mt-6 flex items-center text-primary-600 font-semibold text-sm">
-            <span>자세히 보기</span>
-            <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </div>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Success Cases Section -->
-  <section class="py-20 bg-gradient-to-b from-warm-700 to-warm-800 relative overflow-hidden">
-    <!-- Subtle background decoration -->
-    <div class="absolute inset-0 opacity-[0.05]">
-      <div class="absolute top-20 right-20 w-96 h-96 bg-warm-300 rounded-full filter blur-3xl"></div>
-      <div class="absolute bottom-20 left-20 w-96 h-96 bg-primary-300 rounded-full filter blur-3xl"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-4 relative">
-      <div class="text-center mb-14">
-        <div class="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-sm rounded-full mb-3">
-          <span class="text-warm-100 font-medium text-sm tracking-wide uppercase">Success Stories</span>
-        </div>
-        <h2 class="text-3xl md:text-4xl font-black text-white mb-3">최근 성공 사례</h2>
-        <p class="text-warm-100 text-base max-w-2xl mx-auto">
-          실제 사례를 통해 확인하는 하온의 전문성
-        </p>
+  <!-- Recent cases -->
+  <section class="py-20 bg-navy-900">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="mb-12">
+        <p class="text-gold-400 font-semibold text-sm tracking-widest uppercase mb-2">실제 사례</p>
+        <h2 class="text-3xl md:text-4xl font-black text-white">최근 성공 사례</h2>
       </div>
-
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         {[
           {
@@ -199,18 +142,18 @@ import { url } from '../utils/url';
               '취업규칙 – 최신법령 반영, 정년, 연차 등',
               '노사협의회 – 근로자·사용자위원 선출 등',
               '직장 내 성희롱 예방·장애인 인식개선 교육'
-            ],
+            ]
           },
           {
             badge: '기업 노동법률 자문',
             title: '부산 강서구 서비스업',
             items: [
               '노동법률 자문',
-              '근로계약서 – 고정OT제 반영 등',
+              '근로계약서 –고정OT제 반영 등',
               '근로계약서 – 정규직·시급제 아르바이트 구분',
               '급여명세서 – 연장근로수당, 주휴수당 등 반영',
               '직장 내 성희롱 예방·장애인 인식개선 교육'
-            ],
+            ]
           },
           {
             badge: '근로자 임금체불',
@@ -218,26 +161,20 @@ import { url } from '../utils/url';
             items: [
               '기본급의 최저임금법 위반 여부 확인',
               '식대, 통근수당 등의 통상임금성 확인',
-              '연차반영한 미사용 연차수당 확인',
-              '연장·야간·휴일 근로수당 재산정',
-              '노동청에 임금체불 진정으로 해결'
-            ],
+              '연차반영한 미사용 연차수당 확인 <br/>→ 연장·야간·휴일 근로수당 재산정하여 노동청에 임금체불 진정'
+            ]
           },
         ].map((c) => (
-          <div class="bg-white/10 backdrop-blur-sm p-7 rounded-2xl border border-white/20 hover:border-primary-300/40 hover:bg-white/[0.12] transition-all duration-300">
-            <div class="inline-block px-3 py-1 bg-primary-400/20 border border-primary-300/30 rounded-lg mb-3">
-              <span class="text-xs font-semibold text-primary-100 tracking-wide">{c.badge}</span>
-            </div>
-            <h3 class="font-bold text-white text-lg mb-5 leading-tight">{c.title}</h3>
-            <ul class="space-y-2.5">
+          <div class="bg-navy-800/50 p-8 rounded-xl border border-white/10 hover:border-gold-400/50 transition-colors">
+            <span class="text-xs font-semibold text-gold-400 tracking-wider uppercase">{c.badge}</span>
+            <h3 class="font-bold text-white text-lg mt-3 mb-6">{c.title}</h3>
+            <ul class="space-y-3">
               {c.items.map((item) => (
-                <li class="flex items-start gap-2.5 text-warm-100 text-sm leading-relaxed">
-                  <div class="w-4 h-4 rounded-full bg-primary-400/20 border border-primary-300/40 flex items-center justify-center shrink-0 mt-0.5">
-                    <svg class="w-2.5 h-2.5 text-primary-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <span class="flex-1" set:html={item}></span>
+                <li class="flex items-start gap-2.5 text-gray-300 text-sm leading-relaxed">
+                  <svg class="w-4 h-4 text-gold-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span set:html={item}></span>
                 </li>
               ))}
             </ul>
@@ -247,42 +184,22 @@ import { url } from '../utils/url';
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-20 bg-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.04]">
-      <div class="absolute -top-24 -left-24 w-96 h-96 bg-warm-200 rounded-full filter blur-3xl"></div>
-      <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-200 rounded-full filter blur-3xl"></div>
-    </div>
-
-    <div class="max-w-5xl mx-auto px-4 text-center relative">
-      <div class="inline-block px-4 py-1.5 bg-neutral-50 rounded-full mb-5">
-        <span class="text-neutral-600 font-medium text-sm tracking-wide uppercase">Contact Us</span>
-      </div>
-
-      <h2 class="text-3xl md:text-4xl font-black text-neutral-900 mb-5 leading-tight">
-        지금 바로 상담 받으세요
-      </h2>
-
-      <p class="text-neutral-600 text-base mb-10 leading-relaxed max-w-2xl mx-auto">
-        먼저 상담부터 해보세요.<br class="sm:hidden" />
-        경험 많은 공인노무사가 고민을 해결해드립니다.
+  <!-- CTA -->
+  <section class="py-20 bg-white">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-black text-navy-900 mb-4">지금 바로 상담 받으세요</h2>
+      <p class="text-gray-500 mb-10 leading-relaxed">
+        먼저 상담부터 해보세요. 경험 많은 공인노무사가 고민을 해결해드립니다.
       </p>
-
-      <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-        <a href={url('/employee-consulting')}
-           class="inline-flex items-center gap-2 px-8 py-3.5 bg-warm-600 hover:bg-warm-700 text-white font-semibold text-base rounded-xl transition-all duration-300 shadow-medium hover:shadow-hard">
-          <span>온라인 상담 신청</span>
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={url('/employee-consulting')} class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-navy-900 hover:bg-navy-800 text-white font-bold rounded-xl transition-colors">
+          온라인 상담 신청
         </a>
-
-        <a href="tel:050713281579"
-           class="inline-flex items-center gap-3 px-8 py-3.5 bg-white border-2 border-neutral-200 hover:border-neutral-300 text-neutral-700 font-semibold text-base rounded-xl hover:bg-neutral-50 transition-all duration-300 shadow-soft hover:shadow-medium">
+        <a href="tel:050713281579" class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-navy-900 text-navy-900 font-bold rounded-xl hover:bg-navy-900 hover:text-white transition-colors">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
           </svg>
-          <span>전화 상담: 0507-1328-1579</span>
+          전화 상담: 0507-1328-1579
         </a>
       </div>
     </div>
