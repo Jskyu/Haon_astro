@@ -116,16 +116,11 @@ const emailJsConfig = {
                   required
                   class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition bg-white appearance-none"
                 >
-                  <option value="">— 해당 분야를 선택해 주세요 —</option>
-                  <option value="소음성 난청">소음성 난청</option>
-                  <option value="근골격계 질병 (무릎, 어깨, 허리 등)">근골격계 질병 (무릎, 어깨, 허리 등)</option>
-                  <option value="뇌심혈관 질병 (뇌출혈, 심근경색 등)">뇌심혈관 질병 (뇌출혈, 심근경색 등)</option>
-                  <option value="폐질환 (천식, 진폐, COPD, 석면폐증 등)">폐질환 (천식, 진폐, COPD, 석면폐증 등)</option>
-                  <option value="직업성 암">직업성 암</option>
-                  <option value="유족보상">유족보상</option>
-                  <option value="출퇴근 재해">출퇴근 재해</option>
-                  <option value="산재 불승인 이의신청">산재 불승인 이의신청</option>
-                  <option value="평균임금 정정">평균임금 정정</option>
+                  <option value="">— 상담 분야를 선택해 주세요 —</option>
+                  <option value="부당해고">부당해고</option>
+                  <option value="임금체불·퇴직금">임금체불·퇴직금</option>
+                  <option value="대지급금">대지급금</option>
+                  <option value="산업재해">산업재해</option>
                   <option value="기타">기타</option>
                 </select>
               </div>
@@ -158,7 +153,7 @@ const emailJsConfig = {
               <div>
                 <label class="block text-sm font-semibold text-gray-700 mb-3">현재 상태</label>
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  {['산재 신청 전', '신청 심사 중', '불승인 받음', '기타'].map((s) => (
+                  {['청구/신청 이전', '신청/진정 심사 중', '불승인 받음', '기타'].map((s) => (
                     <label class="flex items-center gap-2 cursor-pointer p-3 border border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-colors">
                       <input type="radio" name="status" value={s} class="accent-blue-600" />
                       <span class="text-sm text-gray-600">{s}</span>
@@ -177,7 +172,13 @@ const emailJsConfig = {
                   name="message"
                   rows="5"
                   required
-                  placeholder="다치거나 질병이 발생한 경위, 증상, 현재 상황 등을 자유롭게 작성해 주세요. 구체적일수록 더 정확한 상담이 가능합니다."
+                  placeholder="어떤 문제가 있는지, 현재 상황 등을 자유롭게 작성해 주세요. 구체적일수록 더 정확한 상담이 가능합니다.
+
+예시:
+- 산업재해 심사 청구
+- 부당해고 대응
+- 임금체불 사건 대응
+- 대지급금 신청 대행 등"
                   class="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition resize-none"
                 ></textarea>
               </div>
